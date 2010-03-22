@@ -15,14 +15,19 @@ namespace QuizEditor
         public Editor()
         {
             InitializeComponent();
+
+
+            Logica lg = new Logica();
+
+            List<Category> listcate =lg.GetAllCategories();
             
-            Category geocategory = new Category("Geografia", "Desafia a tus conocimientos sobre paises");
-            List<Answer>answers1 = new List<Answer>();
-            answers1.Add(new Answer("madrid",true));
-            answers1.Add(new Answer("escocia",false));
-            answers1.Add(new Answer("londres",false));
-            answers1.Add(new Answer("marte",false));
-            questionList.Items.Add(new Question("Capital de españa?",answers1,geocategory,4));
+            //Category geocategory = new Category("Geografia", "Desafia a tus conocimientos sobre paises");
+            //List<Answer>answers1 = new List<Answer>();
+            //answers1.Add(new Answer("madrid",true));
+            //answers1.Add(new Answer("escocia",false));
+            //answers1.Add(new Answer("londres",false));
+            //answers1.Add(new Answer("marte",false));
+            //questionList.Items.Add(new Question("Capital de españa?",answers1,geocategory,4));
             
         }
 
