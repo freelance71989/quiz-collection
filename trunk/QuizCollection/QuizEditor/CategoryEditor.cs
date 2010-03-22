@@ -38,7 +38,6 @@ namespace QuizEditor
         private void EliminarCategoria(object sender, EventArgs e)
         {
             var toRemove = categoryList.SelectedItem;
-                      
             categoryList.Items.Remove(toRemove);
         }
 

@@ -40,7 +40,16 @@ namespace QuizLibrary
 
         public override string ToString()
         {
-            return this.answerText + this.correct.ToString();
+            String res = this.answerText;
+            if (this.correct)
+            {
+                res += ", Correcta";
+            }
+            else
+            {
+                res += ", Incorrecta";
+            }
+            return res;
         }
     }
 }

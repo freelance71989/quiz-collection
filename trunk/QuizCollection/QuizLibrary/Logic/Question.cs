@@ -158,5 +158,10 @@ namespace QuizLibrary
         {
             Answers.RemoveAt(index);
         }
+
+        public override string ToString()
+        {
+            return this.idQuestion+", "+this.questionText;
+        }
     }
 }
