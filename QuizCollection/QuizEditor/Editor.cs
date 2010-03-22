@@ -39,18 +39,46 @@ namespace QuizEditor
         {
             if (questionList.SelectedItem != null)
             {
+                //activar elementos
+                textBoxImageRute.Enabled = true;
+                textBoxSoundRute.Enabled = true;
+                textBoxQuestion.Enabled = true;
+                comboBoxCategory.Enabled = true;
+                labelDifficulty.Enabled = true;
+                deleteQuestion.Enabled = true;
+                buttonImage.Enabled = true;
+                buttonSound.Enabled = true;
+                buttonCreateAnswer.Enabled = true;
+                trackBarDifficulty.Enabled = true;
+                //lalalalal
                 Question quest = (Question)questionList.Items[questionList.SelectedIndex];
-                questionText.Text = quest.QuestionText;
-                difficulty.Value = quest.Difficulty - 1;
-                textDifficult.Text = quest.Difficulty.ToString();
+                textBoxQuestion.Text = quest.QuestionText;
+                trackBarDifficulty.Value = quest.Difficulty - 1;
+                labelDifficulty.Text = quest.Difficulty.ToString();
                 answersList.Items.Clear();
                 answersList.Items.AddRange(quest.Answers.ToArray());
+
+
             }
             else
             {
-                questionText.Text = "";
-                difficulty.Value = 0;
-                textDifficult.Text = Convert.ToString(1);
+                //desactivar elementos
+                textBoxImageRute.Enabled = false;
+                textBoxSoundRute.Enabled = false;
+                textBoxQuestion.Enabled = false;
+                comboBoxCategory.Enabled = false;
+                labelDifficulty.Enabled = false;
+                deleteQuestion.Enabled = false;
+                buttonImage.Enabled = false;
+                buttonSound.Enabled = false;
+                buttonCreateAnswer.Enabled = false;
+                buttonDeleteAnswer.Enabled = false;
+                buttonEditAnswer.Enabled = false;
+                trackBarDifficulty.Enabled = false;
+                //procesos
+                textBoxQuestion.Text = "";
+                trackBarDifficulty.Value = 0;
+                labelDifficulty.Text = Convert.ToString(1);
                 answersList.Items.Clear();
             }
         }
@@ -63,7 +91,7 @@ namespace QuizEditor
 
         private void ChangeTextDifficulty(object sender, EventArgs e)
         {
-            textDifficult.Text = Convert.ToString(difficulty.Value + 1);
+            labelDifficulty.Text = Convert.ToString(trackBarDifficulty.Value + 1);
         }
 
         private void ButtonAddQuestion(object sender, EventArgs e)

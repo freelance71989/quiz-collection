@@ -47,29 +47,29 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.questionText = new System.Windows.Forms.TextBox();
+            this.textBoxQuestion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.categoryBox = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.difficulty = new System.Windows.Forms.TrackBar();
-            this.textDifficult = new System.Windows.Forms.Label();
+            this.trackBarDifficulty = new System.Windows.Forms.TrackBar();
+            this.labelDifficulty = new System.Windows.Forms.Label();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.imageRute = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxImageRute = new System.Windows.Forms.TextBox();
+            this.buttonImage = new System.Windows.Forms.Button();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.soundRute = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxSoundRute = new System.Windows.Forms.TextBox();
+            this.buttonSound = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.answersList = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.addAnswer = new System.Windows.Forms.Button();
-            this.editAnswer = new System.Windows.Forms.Button();
-            this.deleteAnswer = new System.Windows.Forms.Button();
+            this.buttonCreateAnswer = new System.Windows.Forms.Button();
+            this.buttonEditAnswer = new System.Windows.Forms.Button();
+            this.buttonDeleteAnswer = new System.Windows.Forms.Button();
             this.openImageFile = new System.Windows.Forms.OpenFileDialog();
             this.openSoundFile = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
@@ -90,7 +90,7 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.difficulty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDifficulty)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
@@ -263,6 +263,7 @@
             this.deleteQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteQuestion.Enabled = false;
             this.deleteQuestion.Location = new System.Drawing.Point(4, 4);
             this.deleteQuestion.Name = "deleteQuestion";
             this.deleteQuestion.Size = new System.Drawing.Size(111, 35);
@@ -310,12 +311,12 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.questionText, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxQuestion, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.categoryBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxCategory, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.splitContainer4, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.splitContainer5, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.splitContainer6, 1, 4);
@@ -331,16 +332,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 196);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // questionText
+            // textBoxQuestion
             // 
-            this.questionText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.textBoxQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.questionText.Location = new System.Drawing.Point(103, 3);
-            this.questionText.Multiline = true;
-            this.questionText.Name = "questionText";
-            this.questionText.Size = new System.Drawing.Size(355, 33);
-            this.questionText.TabIndex = 0;
+            this.textBoxQuestion.Enabled = false;
+            this.textBoxQuestion.Location = new System.Drawing.Point(103, 3);
+            this.textBoxQuestion.Multiline = true;
+            this.textBoxQuestion.Name = "textBoxQuestion";
+            this.textBoxQuestion.Size = new System.Drawing.Size(355, 33);
+            this.textBoxQuestion.TabIndex = 0;
             // 
             // label2
             // 
@@ -378,16 +380,17 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Sonido/Música";
             // 
-            // categoryBox
+            // comboBoxCategory
             // 
-            this.categoryBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.comboBoxCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.categoryBox.FormattingEnabled = true;
-            this.categoryBox.Location = new System.Drawing.Point(103, 42);
-            this.categoryBox.Name = "categoryBox";
-            this.categoryBox.Size = new System.Drawing.Size(355, 21);
-            this.categoryBox.TabIndex = 6;
+            this.comboBoxCategory.Enabled = false;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(103, 42);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(355, 21);
+            this.comboBoxCategory.TabIndex = 6;
             // 
             // splitContainer4
             // 
@@ -399,37 +402,39 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.difficulty);
+            this.splitContainer4.Panel1.Controls.Add(this.trackBarDifficulty);
             // 
             // splitContainer4.Panel2
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.textDifficult);
+            this.splitContainer4.Panel2.Controls.Add(this.labelDifficulty);
             this.splitContainer4.Size = new System.Drawing.Size(355, 33);
             this.splitContainer4.SplitterDistance = 294;
             this.splitContainer4.TabIndex = 7;
             // 
-            // difficulty
+            // trackBarDifficulty
             // 
-            this.difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.trackBarDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.difficulty.LargeChange = 1;
-            this.difficulty.Location = new System.Drawing.Point(0, 0);
-            this.difficulty.Maximum = 4;
-            this.difficulty.Name = "difficulty";
-            this.difficulty.Size = new System.Drawing.Size(291, 45);
-            this.difficulty.TabIndex = 0;
-            this.difficulty.ValueChanged += new System.EventHandler(this.ChangeTextDifficulty);
+            this.trackBarDifficulty.Enabled = false;
+            this.trackBarDifficulty.LargeChange = 1;
+            this.trackBarDifficulty.Location = new System.Drawing.Point(0, 0);
+            this.trackBarDifficulty.Maximum = 4;
+            this.trackBarDifficulty.Name = "trackBarDifficulty";
+            this.trackBarDifficulty.Size = new System.Drawing.Size(291, 45);
+            this.trackBarDifficulty.TabIndex = 0;
+            this.trackBarDifficulty.ValueChanged += new System.EventHandler(this.ChangeTextDifficulty);
             // 
-            // textDifficult
+            // labelDifficulty
             // 
-            this.textDifficult.AutoSize = true;
-            this.textDifficult.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDifficult.Location = new System.Drawing.Point(15, 4);
-            this.textDifficult.Name = "textDifficult";
-            this.textDifficult.Size = new System.Drawing.Size(20, 22);
-            this.textDifficult.TabIndex = 0;
-            this.textDifficult.Text = "1";
+            this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.Enabled = false;
+            this.labelDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDifficulty.Location = new System.Drawing.Point(15, 4);
+            this.labelDifficulty.Name = "labelDifficulty";
+            this.labelDifficulty.Size = new System.Drawing.Size(20, 22);
+            this.labelDifficulty.TabIndex = 0;
+            this.labelDifficulty.Text = "1";
             // 
             // splitContainer5
             // 
@@ -441,36 +446,38 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.imageRute);
+            this.splitContainer5.Panel1.Controls.Add(this.textBoxImageRute);
             // 
             // splitContainer5.Panel2
             // 
-            this.splitContainer5.Panel2.Controls.Add(this.button1);
+            this.splitContainer5.Panel2.Controls.Add(this.buttonImage);
             this.splitContainer5.Size = new System.Drawing.Size(355, 33);
             this.splitContainer5.SplitterDistance = 254;
             this.splitContainer5.TabIndex = 8;
             // 
-            // imageRute
+            // textBoxImageRute
             // 
-            this.imageRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.textBoxImageRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.imageRute.Location = new System.Drawing.Point(4, 8);
-            this.imageRute.Name = "imageRute";
-            this.imageRute.Size = new System.Drawing.Size(247, 20);
-            this.imageRute.TabIndex = 0;
+            this.textBoxImageRute.Enabled = false;
+            this.textBoxImageRute.Location = new System.Drawing.Point(4, 8);
+            this.textBoxImageRute.Name = "textBoxImageRute";
+            this.textBoxImageRute.Size = new System.Drawing.Size(247, 20);
+            this.textBoxImageRute.TabIndex = 0;
             // 
-            // button1
+            // buttonImage
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 27);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Archivo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonImage.Enabled = false;
+            this.buttonImage.Location = new System.Drawing.Point(4, 3);
+            this.buttonImage.Name = "buttonImage";
+            this.buttonImage.Size = new System.Drawing.Size(90, 27);
+            this.buttonImage.TabIndex = 0;
+            this.buttonImage.Text = "Archivo";
+            this.buttonImage.UseVisualStyleBackColor = true;
             // 
             // splitContainer6
             // 
@@ -482,36 +489,38 @@
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.soundRute);
+            this.splitContainer6.Panel1.Controls.Add(this.textBoxSoundRute);
             // 
             // splitContainer6.Panel2
             // 
-            this.splitContainer6.Panel2.Controls.Add(this.button2);
+            this.splitContainer6.Panel2.Controls.Add(this.buttonSound);
             this.splitContainer6.Size = new System.Drawing.Size(355, 34);
             this.splitContainer6.SplitterDistance = 254;
             this.splitContainer6.TabIndex = 9;
             // 
-            // soundRute
+            // textBoxSoundRute
             // 
-            this.soundRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.textBoxSoundRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.soundRute.Location = new System.Drawing.Point(3, 8);
-            this.soundRute.Name = "soundRute";
-            this.soundRute.Size = new System.Drawing.Size(247, 20);
-            this.soundRute.TabIndex = 0;
+            this.textBoxSoundRute.Enabled = false;
+            this.textBoxSoundRute.Location = new System.Drawing.Point(3, 8);
+            this.textBoxSoundRute.Name = "textBoxSoundRute";
+            this.textBoxSoundRute.Size = new System.Drawing.Size(247, 20);
+            this.textBoxSoundRute.TabIndex = 0;
             // 
-            // button2
+            // buttonSound
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonSound.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 27);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Archivo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSound.Enabled = false;
+            this.buttonSound.Location = new System.Drawing.Point(4, 4);
+            this.buttonSound.Name = "buttonSound";
+            this.buttonSound.Size = new System.Drawing.Size(90, 27);
+            this.buttonSound.TabIndex = 0;
+            this.buttonSound.Text = "Archivo";
+            this.buttonSound.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -570,9 +579,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.addAnswer, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.editAnswer, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.deleteAnswer, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCreateAnswer, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonEditAnswer, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonDeleteAnswer, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(-1, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -582,43 +591,46 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(126, 153);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // addAnswer
+            // buttonCreateAnswer
             // 
-            this.addAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonCreateAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAnswer.Location = new System.Drawing.Point(3, 3);
-            this.addAnswer.Name = "addAnswer";
-            this.addAnswer.Size = new System.Drawing.Size(120, 45);
-            this.addAnswer.TabIndex = 0;
-            this.addAnswer.Text = "Añadir";
-            this.addAnswer.UseVisualStyleBackColor = true;
-            this.addAnswer.Click += new System.EventHandler(this.AñadirRespuesta);
+            this.buttonCreateAnswer.Enabled = false;
+            this.buttonCreateAnswer.Location = new System.Drawing.Point(3, 3);
+            this.buttonCreateAnswer.Name = "buttonCreateAnswer";
+            this.buttonCreateAnswer.Size = new System.Drawing.Size(120, 45);
+            this.buttonCreateAnswer.TabIndex = 0;
+            this.buttonCreateAnswer.Text = "Añadir";
+            this.buttonCreateAnswer.UseVisualStyleBackColor = true;
+            this.buttonCreateAnswer.Click += new System.EventHandler(this.AñadirRespuesta);
             // 
-            // editAnswer
+            // buttonEditAnswer
             // 
-            this.editAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonEditAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.editAnswer.Location = new System.Drawing.Point(3, 54);
-            this.editAnswer.Name = "editAnswer";
-            this.editAnswer.Size = new System.Drawing.Size(120, 45);
-            this.editAnswer.TabIndex = 1;
-            this.editAnswer.Text = "Editar";
-            this.editAnswer.UseVisualStyleBackColor = true;
-            this.editAnswer.Click += new System.EventHandler(this.EditarRespuesta);
+            this.buttonEditAnswer.Enabled = false;
+            this.buttonEditAnswer.Location = new System.Drawing.Point(3, 54);
+            this.buttonEditAnswer.Name = "buttonEditAnswer";
+            this.buttonEditAnswer.Size = new System.Drawing.Size(120, 45);
+            this.buttonEditAnswer.TabIndex = 1;
+            this.buttonEditAnswer.Text = "Editar";
+            this.buttonEditAnswer.UseVisualStyleBackColor = true;
+            this.buttonEditAnswer.Click += new System.EventHandler(this.EditarRespuesta);
             // 
-            // deleteAnswer
+            // buttonDeleteAnswer
             // 
-            this.deleteAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonDeleteAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteAnswer.Location = new System.Drawing.Point(3, 105);
-            this.deleteAnswer.Name = "deleteAnswer";
-            this.deleteAnswer.Size = new System.Drawing.Size(120, 45);
-            this.deleteAnswer.TabIndex = 2;
-            this.deleteAnswer.Text = "Borrar";
-            this.deleteAnswer.UseVisualStyleBackColor = true;
+            this.buttonDeleteAnswer.Enabled = false;
+            this.buttonDeleteAnswer.Location = new System.Drawing.Point(3, 105);
+            this.buttonDeleteAnswer.Name = "buttonDeleteAnswer";
+            this.buttonDeleteAnswer.Size = new System.Drawing.Size(120, 45);
+            this.buttonDeleteAnswer.TabIndex = 2;
+            this.buttonDeleteAnswer.Text = "Borrar";
+            this.buttonDeleteAnswer.UseVisualStyleBackColor = true;
             // 
             // openImageFile
             // 
@@ -661,7 +673,7 @@
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
             this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.difficulty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDifficulty)).EndInit();
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel1.PerformLayout();
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -697,31 +709,31 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox questionText;
+        private System.Windows.Forms.TextBox textBoxQuestion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox categoryBox;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.TrackBar difficulty;
-        private System.Windows.Forms.Label textDifficult;
+        private System.Windows.Forms.TrackBar trackBarDifficulty;
+        private System.Windows.Forms.Label labelDifficulty;
         private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.TextBox imageRute;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxImageRute;
+        private System.Windows.Forms.Button buttonImage;
         private System.Windows.Forms.SplitContainer splitContainer6;
-        private System.Windows.Forms.TextBox soundRute;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxSoundRute;
+        private System.Windows.Forms.Button buttonSound;
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.ListBox answersList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.Button newQuestion;
         private System.Windows.Forms.Button deleteQuestion;
-        private System.Windows.Forms.Button editAnswer;
-        private System.Windows.Forms.Button deleteAnswer;
-        private System.Windows.Forms.Button addAnswer;
+        private System.Windows.Forms.Button buttonEditAnswer;
+        private System.Windows.Forms.Button buttonDeleteAnswer;
+        private System.Windows.Forms.Button buttonCreateAnswer;
         private System.Windows.Forms.ToolStripMenuItem conectarBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openImageFile;
