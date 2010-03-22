@@ -22,26 +22,42 @@ namespace QuizEditor
 
         private void categoryList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Category category =(Category)categoryList.Items[categoryList.SelectedIndex];
-            CategoryText.Text = category.CategoryText;
-            description.Text = category.Description;
+            if (categoryList.SelectedItem != null)
+            {
+                Category category = (Category)categoryList.SelectedItem;
+                CategoryText.Text = category.CategoryText;
+                description.Text = category.Description;
+            }
+            else
+            {
+                CategoryText.Text = "";
+                description.Text = "";
+            }
         }
 
         private void EliminarCategoria(object sender, EventArgs e)
         {
-            categoryList.Items.Remove(categoryList.Items[categoryList.SelectedIndex]);
+            var toRemove = categoryList.SelectedItem;
+                      
+            categoryList.Items.Remove(toRemove);
         }
 
         private void CambioNombreCategoria(object sender, EventArgs e)
         {
-            Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
-            category.CategoryText = CategoryText.Text;
+            if (categoryList.SelectedItem != null)
+            {
+                Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
+                category.CategoryText = CategoryText.Text;
+            }
         }
 
         private void CambioCategoria(object sender, EventArgs e)
         {
-            Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
-            category.Description = description.Text;
+            if (categoryList.SelectedItem != null)
+            {
+                Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
+                category.Description = description.Text;
+            }
         }
 
         private void AñadirCategoria(object sender, EventArgs e)

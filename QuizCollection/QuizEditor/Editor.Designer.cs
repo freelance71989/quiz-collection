@@ -120,19 +120,19 @@
             this.conectarBDToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // conectarBDToolStripMenuItem
             // 
             this.conectarBDToolStripMenuItem.Name = "conectarBDToolStripMenuItem";
-            this.conectarBDToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.conectarBDToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.conectarBDToolStripMenuItem.Text = "Conectar BD";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // herramientasToolStripMenuItem
@@ -141,20 +141,20 @@
             this.editorDeCategoriasToolStripMenuItem,
             this.elementosFijosToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
             // 
             // editorDeCategoriasToolStripMenuItem
             // 
             this.editorDeCategoriasToolStripMenuItem.Name = "editorDeCategoriasToolStripMenuItem";
-            this.editorDeCategoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editorDeCategoriasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.editorDeCategoriasToolStripMenuItem.Text = "Editor de Categorias";
             this.editorDeCategoriasToolStripMenuItem.Click += new System.EventHandler(this.editorDeCategoriasToolStripMenuItem_Click);
             // 
             // elementosFijosToolStripMenuItem
             // 
             this.elementosFijosToolStripMenuItem.Name = "elementosFijosToolStripMenuItem";
-            this.elementosFijosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.elementosFijosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.elementosFijosToolStripMenuItem.Text = "Elementos fijos";
             // 
             // ayudaToolStripMenuItem
@@ -162,13 +162,13 @@
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acercaDeToolStripMenuItem});
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // toolStrip1
@@ -409,12 +409,13 @@
             this.difficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.difficulty.LargeChange = 1;
             this.difficulty.Location = new System.Drawing.Point(0, 0);
             this.difficulty.Maximum = 4;
             this.difficulty.Name = "difficulty";
             this.difficulty.Size = new System.Drawing.Size(291, 45);
             this.difficulty.TabIndex = 0;
-            this.difficulty.CursorChanged += new System.EventHandler(this.CambioValorDificultad);
+            this.difficulty.ValueChanged += new System.EventHandler(this.ChangeTextDifficulty);
             // 
             // textDifficult
             // 
