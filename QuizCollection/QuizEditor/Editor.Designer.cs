@@ -57,10 +57,10 @@
             this.difficulty = new System.Windows.Forms.TrackBar();
             this.textDifficult = new System.Windows.Forms.Label();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.imageRute = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.soundRute = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -70,6 +70,8 @@
             this.addAnswer = new System.Windows.Forms.Button();
             this.editAnswer = new System.Windows.Forms.Button();
             this.deleteAnswer = new System.Windows.Forms.Button();
+            this.openImageFile = new System.Windows.Forms.OpenFileDialog();
+            this.openSoundFile = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -254,6 +256,7 @@
             this.newQuestion.TabIndex = 0;
             this.newQuestion.Text = "Nueva Pregunta";
             this.newQuestion.UseVisualStyleBackColor = true;
+            this.newQuestion.Click += new System.EventHandler(this.ButtonAddQuestion);
             // 
             // deleteQuestion
             // 
@@ -266,6 +269,7 @@
             this.deleteQuestion.TabIndex = 0;
             this.deleteQuestion.Text = "Borrar Pregunta";
             this.deleteQuestion.UseVisualStyleBackColor = true;
+            this.deleteQuestion.Click += new System.EventHandler(this.ButtonDeleteQuestion);
             // 
             // splitContainer3
             // 
@@ -437,7 +441,7 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer5.Panel1.Controls.Add(this.imageRute);
             // 
             // splitContainer5.Panel2
             // 
@@ -446,15 +450,15 @@
             this.splitContainer5.SplitterDistance = 254;
             this.splitContainer5.TabIndex = 8;
             // 
-            // textBox2
+            // imageRute
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.imageRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(4, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 20);
-            this.textBox2.TabIndex = 0;
+            this.imageRute.Location = new System.Drawing.Point(4, 8);
+            this.imageRute.Name = "imageRute";
+            this.imageRute.Size = new System.Drawing.Size(247, 20);
+            this.imageRute.TabIndex = 0;
             // 
             // button1
             // 
@@ -478,7 +482,7 @@
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer6.Panel1.Controls.Add(this.soundRute);
             // 
             // splitContainer6.Panel2
             // 
@@ -487,15 +491,15 @@
             this.splitContainer6.SplitterDistance = 254;
             this.splitContainer6.TabIndex = 9;
             // 
-            // textBox3
+            // soundRute
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.soundRute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(3, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 20);
-            this.textBox3.TabIndex = 0;
+            this.soundRute.Location = new System.Drawing.Point(3, 8);
+            this.soundRute.Name = "soundRute";
+            this.soundRute.Size = new System.Drawing.Size(247, 20);
+            this.soundRute.TabIndex = 0;
             // 
             // button2
             // 
@@ -602,7 +606,7 @@
             this.editAnswer.TabIndex = 1;
             this.editAnswer.Text = "Editar";
             this.editAnswer.UseVisualStyleBackColor = true;
-            this.editAnswer.EnabledChanged += new System.EventHandler(this.ActivarEditarAnswer);
+            this.editAnswer.Click += new System.EventHandler(this.EditarRespuesta);
             // 
             // deleteAnswer
             // 
@@ -615,6 +619,14 @@
             this.deleteAnswer.TabIndex = 2;
             this.deleteAnswer.Text = "Borrar";
             this.deleteAnswer.UseVisualStyleBackColor = true;
+            // 
+            // openImageFile
+            // 
+            this.openImageFile.FileName = "openFileDialog1";
+            // 
+            // openSoundFile
+            // 
+            this.openSoundFile.FileName = "openFileDialog2";
             // 
             // Editor
             // 
@@ -696,10 +708,10 @@
         private System.Windows.Forms.TrackBar difficulty;
         private System.Windows.Forms.Label textDifficult;
         private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox imageRute;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox soundRute;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.ListBox answersList;
@@ -712,5 +724,7 @@
         private System.Windows.Forms.Button addAnswer;
         private System.Windows.Forms.ToolStripMenuItem conectarBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openImageFile;
+        private System.Windows.Forms.OpenFileDialog openSoundFile;
     }
 }
