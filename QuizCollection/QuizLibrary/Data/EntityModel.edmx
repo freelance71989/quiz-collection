@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuizDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="QuizDBStoreContainer">
+          <EntitySet Name="Answer" EntityType="QuizDB.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="QuizDB.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="QuizDB.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Score" EntityType="QuizDB.Store.Score" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="QuizDB.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Answer_Question" Association="QuizDB.Store.FK_Answer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Category" Association="QuizDB.Store.FK_Question_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Category" Association="QuizDB.Store.FK_Score_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_User" Association="QuizDB.Store.FK_Score_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="IdAnswer" />
+          </Key>
+          <Property Name="IdAnswer" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdQuestion" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Correct" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="IdQuestion" />
+          </Key>
+          <Property Name="IdQuestion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="nchar" Nullable="false" MaxLength="200" />
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="Difficulty" Type="tinyint" Nullable="false" />
+          <Property Name="Image" Type="nchar" MaxLength="20" />
+          <Property Name="Sound" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdCategory" Type="int" Nullable="false" />
+          <Property Name="Correct" Type="int" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="20" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Image" Type="nchar" MaxLength="10" />
+          <Property Name="AboutMe" Type="nvarchar(max)" />
+          <Property Name="Since" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="QuizDB.Store.Question" Multiplicity="1" />
+          <End Role="Answer" Type="QuizDB.Store.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="IdQuestion" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="IdQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Category">
+          <End Role="Category" Type="QuizDB.Store.Category" Multiplicity="1" />
+          <End Role="Question" Type="QuizDB.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Category">
+          <End Role="Category" Type="QuizDB.Store.Category" Multiplicity="1" />
+          <End Role="Score" Type="QuizDB.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_User">
+          <End Role="User" Type="QuizDB.Store.User" Multiplicity="1" />
+          <End Role="Score" Type="QuizDB.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuizDB" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="DataBase">
+          <EntitySet Name="AnswerEntities" EntityType="QuizDB.AnswerEntity" />
+          <EntitySet Name="CategoryEntities" EntityType="QuizDB.CategoryEntity" />
+          <EntitySet Name="QuestionEntities" EntityType="QuizDB.QuestionEntity" />
+          <EntitySet Name="ScoreEntities" EntityType="QuizDB.ScoreEntity" />
+          <EntitySet Name="UserEntities" EntityType="QuizDB.UserEntity" />
+          <AssociationSet Name="FK_Answer_Question" Association="QuizDB.FK_Answer_Question">
+            <End Role="Question" EntitySet="QuestionEntities" />
+            <End Role="Answer" EntitySet="AnswerEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Category" Association="QuizDB.FK_Question_Category">
+            <End Role="Category" EntitySet="CategoryEntities" />
+            <End Role="Question" EntitySet="QuestionEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Category" Association="QuizDB.FK_Score_Category">
+            <End Role="Category" EntitySet="CategoryEntities" />
+            <End Role="Score" EntitySet="ScoreEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_User" Association="QuizDB.FK_Score_User">
+            <End Role="User" EntitySet="UserEntities" />
+            <End Role="Score" EntitySet="ScoreEntities" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AnswerEntity">
+          <Key>
+            <PropertyRef Name="IdAnswer" />
+          </Key>
+          <Property Name="IdAnswer" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="Correct" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="QuizDB.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="CategoryEntity">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Questions" Relationship="QuizDB.FK_Question_Category" FromRole="Category" ToRole="Question" />
+          <NavigationProperty Name="Scores" Relationship="QuizDB.FK_Score_Category" FromRole="Category" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="QuestionEntity">
+          <Key>
+            <PropertyRef Name="IdQuestion" />
+          </Key>
+          <Property Name="IdQuestion" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="true" />
+          <Property Name="Difficulty" Type="Byte" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Sound" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Answers" Relationship="QuizDB.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="Category" Relationship="QuizDB.FK_Question_Category" FromRole="Question" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="ScoreEntity">
+          <Key>
+            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdCategory" Type="Int32" Nullable="false" />
+          <Property Name="Correct" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="QuizDB.FK_Score_Category" FromRole="Score" ToRole="Category" />
+          <NavigationProperty Name="User" Relationship="QuizDB.FK_Score_User" FromRole="Score" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserEntity">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="Birthday" Type="DateTime" />
+          <Property Name="Image" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="AboutMe" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Since" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Scores" Relationship="QuizDB.FK_Score_User" FromRole="User" ToRole="Score" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="QuizDB.QuestionEntity" Multiplicity="1" />
+          <End Role="Answer" Type="QuizDB.AnswerEntity" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Question_Category">
+          <End Role="Category" Type="QuizDB.CategoryEntity" Multiplicity="1" />
+          <End Role="Question" Type="QuizDB.QuestionEntity" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Score_Category">
+          <End Role="Category" Type="QuizDB.CategoryEntity" Multiplicity="1" />
+          <End Role="Score" Type="QuizDB.ScoreEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_User">
+          <End Role="User" Type="QuizDB.UserEntity" Multiplicity="1" />
+          <End Role="Score" Type="QuizDB.ScoreEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="QuizDBStoreContainer" CdmEntityContainer="DataBase">
+          <EntitySetMapping Name="AnswerEntities">
+            <EntityTypeMapping TypeName="IsTypeOf(QuizDB.AnswerEntity)">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Correct" ColumnName="Correct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryEntities">
+            <EntityTypeMapping TypeName="IsTypeOf(QuizDB.CategoryEntity)">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionEntities">
+            <EntityTypeMapping TypeName="IsTypeOf(QuizDB.QuestionEntity)">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Sound" ColumnName="Sound" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoreEntities">
+            <EntityTypeMapping TypeName="IsTypeOf(QuizDB.ScoreEntity)">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="Correct" ColumnName="Correct" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEntities">
+            <EntityTypeMapping TypeName="IsTypeOf(QuizDB.UserEntity)">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+                <ScalarProperty Name="Since" ColumnName="Since" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Answer_Question" TypeName="QuizDB.FK_Answer_Question" StoreEntitySet="Answer">
+            <EndProperty Name="Question">
+              <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+            </EndProperty>
+            <EndProperty Name="Answer">
+              <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Question_Category" TypeName="QuizDB.FK_Question_Category" StoreEntitySet="Question">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+            </EndProperty>
+            <EndProperty Name="Question">
+              <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Score_Category" TypeName="QuizDB.FK_Score_Category" StoreEntitySet="Score">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+            </EndProperty>
+            <EndProperty Name="Score">
+              <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Score_User" TypeName="QuizDB.FK_Score_User" StoreEntitySet="Score">
+            <EndProperty Name="User">
+              <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+            </EndProperty>
+            <EndProperty Name="Score">
+              <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="EntityModel">
+        <EntityTypeShape EntityType="QuizDB.AnswerEntity" Width="1.5" PointX="5.25" PointY="7" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDB.CategoryEntity" Width="1.5" PointX="0.75" PointY="4" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDB.QuestionEntity" Width="1.5" PointX="3" PointY="6.625" Height="2.3648893229166648" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDB.ScoreEntity" Width="1.5" PointX="3" PointY="2.875" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDB.UserEntity" Width="1.5" PointX="0.75" PointY="0.75" Height="2.364889322916667" IsExpanded="true" />
+        <AssociationConnector Association="QuizDB.FK_Answer_Question" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.8939925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="7.8939925130208337" /></AssociationConnector>
+        <AssociationConnector Association="QuizDB.FK_Question_Category" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="5.9802864583333335" />
+          <ConnectorPoint PointX="1.5" PointY="7.8074446614583319" />
+          <ConnectorPoint PointX="3" PointY="7.8074446614583319" /></AssociationConnector>
+        <AssociationConnector Association="QuizDB.FK_Score_Category" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.5237939453125" />
+          <ConnectorPoint PointX="3" PointY="4.5237939453125" /></AssociationConnector>
+        <AssociationConnector Association="QuizDB.FK_Score_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.8124995" />
+          <ConnectorPoint PointX="3.75" PointY="1.8124995" />
+          <ConnectorPoint PointX="3.75" PointY="2.875" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using QuizLibrary.Data;
 
 namespace QuizLibrary
 {
     class Entities
     {
-        private QuizDB data;
+        private Data.DataBase data;
 
         public Entities()
         {
-            data = new QuizDB();
+            data = new QuizLibrary.Data.DataBase();
         }
 
         //question

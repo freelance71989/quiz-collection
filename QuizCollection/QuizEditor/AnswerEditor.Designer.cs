@@ -104,7 +104,6 @@
             this.buttonAccept.TabIndex = 0;
             this.buttonAccept.Text = "Aceptar Cambios";
             this.buttonAccept.UseVisualStyleBackColor = true;
-            this.buttonAccept.Click += new System.EventHandler(this.Changes);
             // 
             // buttonDiscart
             // 
