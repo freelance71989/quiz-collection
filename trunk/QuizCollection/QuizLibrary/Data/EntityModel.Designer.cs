@@ -9,42 +9,42 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDBModel", "FK_Answer_Question", "Question", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.QuestionEntity), "Answer", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.AnswerEntity))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDBModel", "FK_Question_Category", "Category", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.CategoryEntity), "Question", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.QuestionEntity))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDBModel", "FK_Score_Category", "Category", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.CategoryEntity), "Score", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.ScoreEntity))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDBModel", "FK_Score_User", "User", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.UserEntity), "Score", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.ScoreEntity))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDB", "FK_Answer_Question", "Question", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.Data.QuestionEntity), "Answer", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.Data.AnswerEntity))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDB", "FK_Question_Category", "Category", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.Data.CategoryEntity), "Question", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.Data.QuestionEntity))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDB", "FK_Score_Category", "Category", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.Data.CategoryEntity), "Score", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.Data.ScoreEntity))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDB", "FK_Score_User", "User", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.Data.UserEntity), "Score", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.Data.ScoreEntity))]
 
 // Nombre de archivo original:
-// Fecha de generación: 17/03/2010 20:27:32
-namespace QuizLibrary
+// Fecha de generación: 22/03/2010 23:43:22
+namespace QuizLibrary.Data
 {
     
     /// <summary>
-    /// No hay ningún comentario para QuizDB en el esquema.
+    /// No hay ningún comentario para DataBase en el esquema.
     /// </summary>
-    public partial class QuizDB : global::System.Data.Objects.ObjectContext
+    public partial class DataBase : global::System.Data.Objects.ObjectContext
     {
         /// <summary>
-        /// Inicializa un nuevo objeto QuizDB usando la cadena de conexión encontrada en la sección 'QuizDB' del archivo de configuración de la aplicación.
+        /// Inicializa un nuevo objeto DataBase usando la cadena de conexión encontrada en la sección 'DataBase' del archivo de configuración de la aplicación.
         /// </summary>
-        public QuizDB() : 
-                base("name=QuizDB", "QuizDB")
+        public DataBase() : 
+                base("name=DataBase", "DataBase")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// Inicializar un nuevo objeto QuizDB.
+        /// Inicializar un nuevo objeto DataBase.
         /// </summary>
-        public QuizDB(string connectionString) : 
-                base(connectionString, "QuizDB")
+        public DataBase(string connectionString) : 
+                base(connectionString, "DataBase")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// Inicializar un nuevo objeto QuizDB.
+        /// Inicializar un nuevo objeto DataBase.
         /// </summary>
-        public QuizDB(global::System.Data.EntityClient.EntityConnection connection) : 
-                base(connection, "QuizDB")
+        public DataBase(global::System.Data.EntityClient.EntityConnection connection) : 
+                base(connection, "DataBase")
         {
             this.OnContextCreated();
         }
@@ -161,12 +161,12 @@ namespace QuizLibrary
         }
     }
     /// <summary>
-    /// No hay ningún comentario para QuizDBModel.AnswerEntity en el esquema.
+    /// No hay ningún comentario para QuizDB.AnswerEntity en el esquema.
     /// </summary>
     /// <KeyProperties>
     /// IdAnswer
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDBModel", Name="AnswerEntity")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDB", Name="AnswerEntity")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
     public partial class AnswerEntity : global::System.Data.Objects.DataClasses.EntityObject
@@ -257,7 +257,7 @@ namespace QuizLibrary
         /// <summary>
         /// No hay ningún comentario para Question en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Answer_Question", "Question")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Answer_Question", "Question")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -265,11 +265,11 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDBModel.FK_Answer_Question", "Question").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDB.FK_Answer_Question", "Question").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDBModel.FK_Answer_Question", "Question").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDB.FK_Answer_Question", "Question").Value = value;
             }
         }
         /// <summary>
@@ -281,24 +281,24 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDBModel.FK_Answer_Question", "Question");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<QuestionEntity>("QuizDB.FK_Answer_Question", "Question");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<QuestionEntity>("QuizDBModel.FK_Answer_Question", "Question", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<QuestionEntity>("QuizDB.FK_Answer_Question", "Question", value);
                 }
             }
         }
     }
     /// <summary>
-    /// No hay ningún comentario para QuizDBModel.CategoryEntity en el esquema.
+    /// No hay ningún comentario para QuizDB.CategoryEntity en el esquema.
     /// </summary>
     /// <KeyProperties>
     /// IdCategory
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDBModel", Name="CategoryEntity")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDB", Name="CategoryEntity")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
     public partial class CategoryEntity : global::System.Data.Objects.DataClasses.EntityObject
@@ -387,7 +387,7 @@ namespace QuizLibrary
         /// <summary>
         /// No hay ningún comentario para Questions en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Question_Category", "Question")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Question_Category", "Question")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -395,45 +395,45 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<QuestionEntity>("QuizDBModel.FK_Question_Category", "Question");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<QuestionEntity>("QuizDB.FK_Question_Category", "Question");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<QuestionEntity>("QuizDBModel.FK_Question_Category", "Question", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<QuestionEntity>("QuizDB.FK_Question_Category", "Question", value);
                 }
             }
         }
         /// <summary>
-        /// No hay ningún comentario para Score en el esquema.
+        /// No hay ningún comentario para Scores en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Score_Category", "Score")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Score_Category", "Score")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<ScoreEntity> Score
+        public global::System.Data.Objects.DataClasses.EntityCollection<ScoreEntity> Scores
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<ScoreEntity>("QuizDBModel.FK_Score_Category", "Score");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<ScoreEntity>("QuizDB.FK_Score_Category", "Score");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<ScoreEntity>("QuizDBModel.FK_Score_Category", "Score", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<ScoreEntity>("QuizDB.FK_Score_Category", "Score", value);
                 }
             }
         }
     }
     /// <summary>
-    /// No hay ningún comentario para QuizDBModel.QuestionEntity en el esquema.
+    /// No hay ningún comentario para QuizDB.QuestionEntity en el esquema.
     /// </summary>
     /// <KeyProperties>
     /// IdQuestion
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDBModel", Name="QuestionEntity")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDB", Name="QuestionEntity")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
     public partial class QuestionEntity : global::System.Data.Objects.DataClasses.EntityObject
@@ -570,7 +570,7 @@ namespace QuizLibrary
         /// <summary>
         /// No hay ningún comentario para Answers en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Answer_Question", "Answer")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Answer_Question", "Answer")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -578,20 +578,20 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<AnswerEntity>("QuizDBModel.FK_Answer_Question", "Answer");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<AnswerEntity>("QuizDB.FK_Answer_Question", "Answer");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<AnswerEntity>("QuizDBModel.FK_Answer_Question", "Answer", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<AnswerEntity>("QuizDB.FK_Answer_Question", "Answer", value);
                 }
             }
         }
         /// <summary>
         /// No hay ningún comentario para Category en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Question_Category", "Category")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Question_Category", "Category")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -599,11 +599,11 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Question_Category", "Category").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Question_Category", "Category").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Question_Category", "Category").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Question_Category", "Category").Value = value;
             }
         }
         /// <summary>
@@ -615,25 +615,25 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Question_Category", "Category");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Question_Category", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<CategoryEntity>("QuizDBModel.FK_Question_Category", "Category", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<CategoryEntity>("QuizDB.FK_Question_Category", "Category", value);
                 }
             }
         }
     }
     /// <summary>
-    /// No hay ningún comentario para QuizDBModel.ScoreEntity en el esquema.
+    /// No hay ningún comentario para QuizDB.ScoreEntity en el esquema.
     /// </summary>
     /// <KeyProperties>
     /// IdUser
     /// IdCategory
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDBModel", Name="ScoreEntity")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDB", Name="ScoreEntity")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
     public partial class ScoreEntity : global::System.Data.Objects.DataClasses.EntityObject
@@ -749,7 +749,7 @@ namespace QuizLibrary
         /// <summary>
         /// No hay ningún comentario para Category en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Score_Category", "Category")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Score_Category", "Category")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -757,11 +757,11 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Score_Category", "Category").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Score_Category", "Category").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Score_Category", "Category").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Score_Category", "Category").Value = value;
             }
         }
         /// <summary>
@@ -773,20 +773,20 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDBModel.FK_Score_Category", "Category");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<CategoryEntity>("QuizDB.FK_Score_Category", "Category");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<CategoryEntity>("QuizDBModel.FK_Score_Category", "Category", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<CategoryEntity>("QuizDB.FK_Score_Category", "Category", value);
                 }
             }
         }
         /// <summary>
         /// No hay ningún comentario para User en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Score_User", "User")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Score_User", "User")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -794,11 +794,11 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDBModel.FK_Score_User", "User").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDB.FK_Score_User", "User").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDBModel.FK_Score_User", "User").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDB.FK_Score_User", "User").Value = value;
             }
         }
         /// <summary>
@@ -810,24 +810,24 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDBModel.FK_Score_User", "User");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<UserEntity>("QuizDB.FK_Score_User", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<UserEntity>("QuizDBModel.FK_Score_User", "User", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<UserEntity>("QuizDB.FK_Score_User", "User", value);
                 }
             }
         }
     }
     /// <summary>
-    /// No hay ningún comentario para QuizDBModel.UserEntity en el esquema.
+    /// No hay ningún comentario para QuizDB.UserEntity en el esquema.
     /// </summary>
     /// <KeyProperties>
     /// IdUser
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDBModel", Name="UserEntity")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="QuizDB", Name="UserEntity")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
     public partial class UserEntity : global::System.Data.Objects.DataClasses.EntityObject
@@ -987,7 +987,7 @@ namespace QuizLibrary
         /// <summary>
         /// No hay ningún comentario para Scores en el esquema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDBModel", "FK_Score_User", "Score")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("QuizDB", "FK_Score_User", "Score")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -995,13 +995,13 @@ namespace QuizLibrary
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<ScoreEntity>("QuizDBModel.FK_Score_User", "Score");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<ScoreEntity>("QuizDB.FK_Score_User", "Score");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<ScoreEntity>("QuizDBModel.FK_Score_User", "Score", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<ScoreEntity>("QuizDB.FK_Score_User", "Score", value);
                 }
             }
         }

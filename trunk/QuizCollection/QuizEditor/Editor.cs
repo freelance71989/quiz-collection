@@ -16,6 +16,9 @@ namespace QuizEditor
         {
             InitializeComponent();
 
+            //Logica logic = new Logica();
+            //logic.GetAllCategories();
+
             Category geocategory = new Category("Geografia", "Desafia a tus conocimientos sobre paises");
             List<Answer> answers1 = new List<Answer>();
             answers1.Add(new Answer("madrid", true));

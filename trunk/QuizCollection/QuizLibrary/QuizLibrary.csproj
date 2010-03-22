@@ -74,14 +74,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\Answer.cs" />
-    <Compile Include="Logic\Category.cs" />
-    <Compile Include="DataBase.Designer.cs">
+    <Compile Include="Data\EntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBase.edmx</DependentUpon>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities.cs" />
+    <Compile Include="Logic\Answer.cs" />
+    <Compile Include="Logic\Category.cs" />
+    <Compile Include="Data\Entities.cs" />
     <Compile Include="Logic\Logica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,9 +94,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="DataBase.edmx">
+    <EntityDeploy Include="Data\EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
     <None Include="Properties\Settings.settings">
