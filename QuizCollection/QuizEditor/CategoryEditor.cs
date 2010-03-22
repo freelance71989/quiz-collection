@@ -46,8 +46,8 @@ namespace QuizEditor
         {
             if (categoryList.SelectedItem != null)
             {
-                Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
-                category.CategoryText = CategoryText.Text;
+                ((Category)categoryList.SelectedItem).CategoryText = CategoryText.Text;
+                categoryList.Refresh();
             }
         }
 
