@@ -571,6 +571,7 @@
             this.answersList.Name = "answersList";
             this.answersList.Size = new System.Drawing.Size(335, 160);
             this.answersList.TabIndex = 0;
+            this.answersList.SelectedIndexChanged += new System.EventHandler(this.SelectAnswer);
             // 
             // tableLayoutPanel2
             // 

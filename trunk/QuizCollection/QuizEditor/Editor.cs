@@ -116,5 +116,20 @@ namespace QuizEditor
             AnswerEditor ans = new AnswerEditor();
             ans.ShowDialog();
         }
+
+        private void SelectAnswer(object sender, EventArgs e)
+        {
+            if (answersList.SelectedItem != null)
+            {
+                //activar elementos
+                buttonEditAnswer.Enabled = true;
+                buttonDeleteAnswer.Enabled = true;
+            }
+            else
+            {
+                buttonEditAnswer.Enabled = false;
+                buttonDeleteAnswer.Enabled = false;
+            }
+        }
     }
 }
