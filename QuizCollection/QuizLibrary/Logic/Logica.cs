@@ -66,17 +66,12 @@ namespace QuizLibrary
 
         public List<Category> GetAllCategories()
         {
-            int maxId = entities.GetMaxIdCategory();
-            List<Category> res = new List<Category>();
-            for (int i = 0; i <= maxId; i++)
-            {
-                if (entities.ExistCategory(i))
-                {
-                    res.Add(entities.GetCategory(i));
-                }
-            }
+            return entities.GetAllCategories();
+        }
 
-            return res;
+        public List<Question> GetAllQuestion()
+        {
+            return entities.GetAllQuestion();
         }
     }
 }

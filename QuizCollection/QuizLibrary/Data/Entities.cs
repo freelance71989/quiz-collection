@@ -65,6 +65,16 @@ namespace QuizLibrary
 
             return res;
         }
+        public List<Question> GetAllQuestion()
+        {
+            List<int> index = data.QuestionEntities.Select(x => x.IdQuestion).ToList<int>();
+            List<Question> questions = new List<Question>();
+            foreach (int e in index)
+            {
+                questions.Add(GetQuestion(e));
+            }
+            return questions;
+        }
 
         public int LastIdQuestion()
         {
@@ -152,9 +162,14 @@ namespace QuizLibrary
             return data.CategoryEntities.Count(x => x.IdCategory == idCategory) != 0;
         }
 
-        public int GetMaxIdCategory()
+        public List<Category> GetAllCategories()
         {
-            return data.CategoryEntities.Max(x => x.IdCategory);
+            return data.CategoryEntities.Select(x => new Category()
+            {
+                IdCategory = x.IdCategory,
+                CategoryText = x.Category,
+                Description = x.Description,
+            }).ToList<Category>();
         }
 
         //user
