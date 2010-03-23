@@ -73,5 +73,27 @@ namespace QuizLibrary
         {
             return entities.GetAllQuestion();
         }
+
+        public int CreateCategory(Category category)
+        {
+            int id = category.IdCategory;
+            if(!entities.ExistCategory(category.CategoryText))
+            {
+                if (category.IdCategory == -1)
+                {
+                    id = entities.AddCategory(category);
+                }
+                else
+                {
+                    entities.UpdateCategory(category);
+                }
+            }
+            return id;
+        }
+
+        public void DeteleCategory(int index)
+        {
+            entities.deleteCategory(index);
+        }
     }
 }

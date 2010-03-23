@@ -25,6 +25,7 @@ namespace QuizLibrary
             qe.Difficulty = Convert.ToByte(question.Difficulty);
             qe.Image = question.Image;
             qe.Sound = question.Sound;
+            data.AddToQuestionEntities(qe);
             data.SaveChanges();
 
             return qe.IdQuestion;
@@ -123,6 +124,7 @@ namespace QuizLibrary
             CategoryEntity ce = new CategoryEntity();
             ce.Category = category.CategoryText;
             ce.Description = category.Description;
+            data.AddToCategoryEntities(ce);
             data.SaveChanges();
             return ce.IdCategory;
         }
@@ -162,6 +164,11 @@ namespace QuizLibrary
             return data.CategoryEntities.Count(x => x.IdCategory == idCategory) != 0;
         }
 
+        public Boolean ExistCategory(String category)
+        {
+            return data.CategoryEntities.Count(x => x.Category.ToLower() == category.ToLower()) != 0;
+        }
+
         public List<Category> GetAllCategories()
         {
             return data.CategoryEntities.Select(x => new Category()
@@ -170,6 +177,13 @@ namespace QuizLibrary
                 CategoryText = x.Category,
                 Description = x.Description,
             }).ToList<Category>();
+        }
+
+        public void deleteCategory(int index)
+        {
+            CategoryEntity ce = data.CategoryEntities.First(x => x.IdCategory == index);
+            data.DeleteObject(ce);
+            data.SaveChanges();
         }
 
         //user

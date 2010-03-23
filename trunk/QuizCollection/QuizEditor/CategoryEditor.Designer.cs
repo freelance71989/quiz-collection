@@ -30,13 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAddCategory = new System.Windows.Forms.Button();
+            this.buttonEraseCategory = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CategoryText = new System.Windows.Forms.TextBox();
-            this.description = new System.Windows.Forms.TextBox();
+            this.textBoxCategory = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.categoryList = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
@@ -75,8 +75,8 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonAddCategory, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonEraseCategory, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 237);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -84,31 +84,31 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 44);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // button1
+            // buttonAddCategory
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonAddCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Añadir Categoria";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AñadirCategoria);
+            this.buttonAddCategory.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddCategory.Name = "buttonAddCategory";
+            this.buttonAddCategory.Size = new System.Drawing.Size(80, 38);
+            this.buttonAddCategory.TabIndex = 0;
+            this.buttonAddCategory.Text = "Añadir Categoria";
+            this.buttonAddCategory.UseVisualStyleBackColor = true;
+            this.buttonAddCategory.Click += new System.EventHandler(this.AñadirCategoria);
             // 
-            // button2
+            // buttonEraseCategory
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonEraseCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(89, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Eliminar Categoria";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.EliminarCategoria);
+            this.buttonEraseCategory.Location = new System.Drawing.Point(89, 3);
+            this.buttonEraseCategory.Name = "buttonEraseCategory";
+            this.buttonEraseCategory.Size = new System.Drawing.Size(81, 38);
+            this.buttonEraseCategory.TabIndex = 1;
+            this.buttonEraseCategory.Text = "Eliminar Categoria";
+            this.buttonEraseCategory.UseVisualStyleBackColor = true;
+            this.buttonEraseCategory.Click += new System.EventHandler(this.EliminarCategoria);
             // 
             // tableLayoutPanel3
             // 
@@ -119,8 +119,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.CategoryText, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.description, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxCategory, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxDescription, 0, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(182, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -149,27 +149,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion de la categoria";
             // 
-            // CategoryText
+            // textBoxCategory
             // 
-            this.CategoryText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.CategoryText.Location = new System.Drawing.Point(3, 25);
-            this.CategoryText.Name = "CategoryText";
-            this.CategoryText.Size = new System.Drawing.Size(288, 20);
-            this.CategoryText.TabIndex = 2;
-            this.CategoryText.TextChanged += new System.EventHandler(this.CambioNombreCategoria);
+            this.textBoxCategory.Location = new System.Drawing.Point(3, 25);
+            this.textBoxCategory.Name = "textBoxCategory";
+            this.textBoxCategory.Size = new System.Drawing.Size(288, 20);
+            this.textBoxCategory.TabIndex = 2;
+            this.textBoxCategory.TextChanged += new System.EventHandler(this.CambioNombreCategoria);
             // 
-            // description
+            // textBoxDescription
             // 
-            this.description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.description.Location = new System.Drawing.Point(3, 69);
-            this.description.Multiline = true;
-            this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(288, 156);
-            this.description.TabIndex = 3;
-            this.description.TextChanged += new System.EventHandler(this.CambioCategoria);
+            this.textBoxDescription.Location = new System.Drawing.Point(3, 69);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(288, 156);
+            this.textBoxDescription.TabIndex = 3;
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.CambioCategoria);
             // 
             // categoryList
             // 
@@ -181,7 +181,7 @@
             this.categoryList.Name = "categoryList";
             this.categoryList.Size = new System.Drawing.Size(173, 225);
             this.categoryList.TabIndex = 2;
-            this.categoryList.SelectedIndexChanged += new System.EventHandler(this.categoryList_SelectedIndexChanged);
+            this.categoryList.SelectedIndexChanged += new System.EventHandler(this.SelectCategoryIndex);
             // 
             // tableLayoutPanel4
             // 
@@ -212,6 +212,7 @@
             this.button3.TabIndex = 0;
             this.button3.Text = "Aceptar Cambios";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.AceptChanges);
             // 
             // button4
             // 
@@ -224,6 +225,7 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "Descartar Cambios";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.DiscardChanges);
             // 
             // CategoryEditor
             // 
@@ -247,13 +249,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.ListBox categoryList;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.ListBox categoryList;
+        private System.Windows.Forms.Button buttonAddCategory;
+        private System.Windows.Forms.Button buttonEraseCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox CategoryText;
-        private System.Windows.Forms.TextBox description;
+        private System.Windows.Forms.TextBox textBoxCategory;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
