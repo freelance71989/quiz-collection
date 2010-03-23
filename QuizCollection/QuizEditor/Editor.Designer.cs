@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,6 +121,7 @@
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conectarBDToolStripMenuItem,
+            this.guardarCambiosToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
@@ -128,13 +130,19 @@
             // conectarBDToolStripMenuItem
             // 
             this.conectarBDToolStripMenuItem.Name = "conectarBDToolStripMenuItem";
-            this.conectarBDToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.conectarBDToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.conectarBDToolStripMenuItem.Text = "Conectar BD";
+            // 
+            // guardarCambiosToolStripMenuItem
+            // 
+            this.guardarCambiosToolStripMenuItem.Name = "guardarCambiosToolStripMenuItem";
+            this.guardarCambiosToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.guardarCambiosToolStripMenuItem.Text = "Guardar Cambios";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // herramientasToolStripMenuItem
@@ -739,5 +747,6 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openImageFile;
         private System.Windows.Forms.OpenFileDialog openSoundFile;
+        private System.Windows.Forms.ToolStripMenuItem guardarCambiosToolStripMenuItem;
     }
 }

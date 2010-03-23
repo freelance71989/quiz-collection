@@ -12,6 +12,7 @@ namespace QuizEditor
 {
     public partial class Editor : Form
     {
+        private CategoryEditor formCategory;
         public Editor()
         {
             InitializeComponent();
@@ -21,6 +22,9 @@ namespace QuizEditor
             List<Question> question = logic.GetAllQuestion();
 
             questionList.Items.AddRange(question.ToArray());
+
+            formCategory = new CategoryEditor();
+            formCategory.categoryList.Items.AddRange(categ.ToArray());
 
             //Category geocategory = new Category("Geografia", "Desafia a tus conocimientos sobre paises");
             //List<Answer> answers1 = new List<Answer>();
@@ -34,8 +38,7 @@ namespace QuizEditor
 
         private void editorDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CategoryEditor f = new CategoryEditor();
-            f.ShowDialog();
+            formCategory.ShowDialog();
         }
 
         private void questionList_SelectedIndexChanged(object sender, EventArgs e)
