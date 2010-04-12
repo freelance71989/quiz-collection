@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,8 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.buttonSaveQuestion = new System.Windows.Forms.ToolStripButton();
+            this.buttonSaveAllQuestion = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.questionList = new System.Windows.Forms.ListBox();
@@ -74,6 +77,7 @@
             this.openImageFile = new System.Windows.Forms.OpenFileDialog();
             this.openSoundFile = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -183,11 +187,34 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonSaveQuestion,
+            this.buttonSaveAllQuestion});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(706, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // buttonSaveQuestion
+            // 
+            this.buttonSaveQuestion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonSaveQuestion.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveQuestion.Image")));
+            this.buttonSaveQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonSaveQuestion.Name = "buttonSaveQuestion";
+            this.buttonSaveQuestion.Size = new System.Drawing.Size(23, 22);
+            this.buttonSaveQuestion.Text = "Guardar Cambios en la pregunta";
+            this.buttonSaveQuestion.Click += new System.EventHandler(this.SaveChange);
+            // 
+            // buttonSaveAllQuestion
+            // 
+            this.buttonSaveAllQuestion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonSaveAllQuestion.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllQuestion.Image")));
+            this.buttonSaveAllQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonSaveAllQuestion.Name = "buttonSaveAllQuestion";
+            this.buttonSaveAllQuestion.Size = new System.Drawing.Size(23, 22);
+            this.buttonSaveAllQuestion.Text = "Guardar todos los cambios";
+            this.buttonSaveAllQuestion.Click += new System.EventHandler(this.SaveAllChanges);
             // 
             // splitContainer1
             // 
@@ -351,6 +378,7 @@
             this.textBoxQuestion.Name = "textBoxQuestion";
             this.textBoxQuestion.Size = new System.Drawing.Size(355, 33);
             this.textBoxQuestion.TabIndex = 0;
+            this.textBoxQuestion.TextChanged += new System.EventHandler(this.ChangeQuestionText);
             // 
             // label2
             // 
@@ -399,6 +427,7 @@
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(355, 21);
             this.comboBoxCategory.TabIndex = 6;
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.ChangeCategoryQuestion);
             // 
             // splitContainer4
             // 
@@ -486,6 +515,7 @@
             this.buttonImage.TabIndex = 0;
             this.buttonImage.Text = "Archivo";
             this.buttonImage.UseVisualStyleBackColor = true;
+            this.buttonImage.Click += new System.EventHandler(this.OpenFileImage);
             // 
             // splitContainer6
             // 
@@ -529,6 +559,7 @@
             this.buttonSound.TabIndex = 0;
             this.buttonSound.Text = "Archivo";
             this.buttonSound.UseVisualStyleBackColor = true;
+            this.buttonSound.Click += new System.EventHandler(this.OpenFileSound);
             // 
             // label1
             // 
@@ -662,6 +693,8 @@
             this.Text = "QuizEditor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
@@ -748,5 +781,7 @@
         private System.Windows.Forms.OpenFileDialog openImageFile;
         private System.Windows.Forms.OpenFileDialog openSoundFile;
         private System.Windows.Forms.ToolStripMenuItem guardarCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton buttonSaveQuestion;
+        private System.Windows.Forms.ToolStripButton buttonSaveAllQuestion;
     }
 }

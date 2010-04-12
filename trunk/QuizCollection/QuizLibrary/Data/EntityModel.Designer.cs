@@ -15,7 +15,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("QuizDB", "FK_Score_User", "User", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuizLibrary.Data.UserEntity), "Score", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuizLibrary.Data.ScoreEntity))]
 
 // Nombre de archivo original:
-// Fecha de generación: 22/03/2010 23:43:22
+// Fecha de generación: 12/04/2010 13:38:25
 namespace QuizLibrary.Data
 {
     
@@ -567,6 +567,29 @@ namespace QuizLibrary.Data
         private string _Sound;
         partial void OnSoundChanging(string value);
         partial void OnSoundChanged();
+        /// <summary>
+        /// No hay ningún comentario para la propiedad CreateBy en el esquema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreateBy
+        {
+            get
+            {
+                return this._CreateBy;
+            }
+            set
+            {
+                this.OnCreateByChanging(value);
+                this.ReportPropertyChanging("CreateBy");
+                this._CreateBy = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CreateBy");
+                this.OnCreateByChanged();
+            }
+        }
+        private string _CreateBy;
+        partial void OnCreateByChanging(string value);
+        partial void OnCreateByChanged();
         /// <summary>
         /// No hay ningún comentario para Answers en el esquema.
         /// </summary>
