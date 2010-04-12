@@ -51,8 +51,10 @@ namespace QuizLibrary
         public Question GetQuestion(int idQuestion) 
         {
             var questEntity = data.QuestionEntities.First(x => x.IdQuestion == idQuestion);
+            questEntity.CategoryReference.Load();
 
-            Category category = GetCategory(questEntity.Category.Category);
+            Category category = GetCategory(questEntity.Category.IdCategory);
+            
             List<Answer> answers = GetAnswers(idQuestion);
             Question res = new Question();
 
