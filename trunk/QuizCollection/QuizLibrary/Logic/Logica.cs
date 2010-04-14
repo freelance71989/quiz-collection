@@ -18,16 +18,20 @@ namespace QuizLibrary
             if (idQuestion == -1)
             {
                 idQuestion = entities.AddQuestion(question);
+                //foreach (var ans in question.Answers)
+                //    entities.AddAnswer(ans, idQuestion);
             }
             else
             {
                 entities.UpdateQuestion(question);
             }
-            
-            foreach (var ans in question.Answers)
-                entities.AddAnswer(ans, idQuestion);
 
             return entities.GetQuestion(idQuestion);
+        }
+
+        public void DeleteQuestion(Question question)
+        {
+            entities.DeleteQuestion(question.IdQuestion);
         }
 
         public User CreateUser(User user)
@@ -35,7 +39,6 @@ namespace QuizLibrary
             int idUser = entities.AddUser(user);
 
             return entities.GetUser(idUser);
-
         }
 
         public Score UpdateScore(User user, Category category, Boolean correct)
@@ -93,7 +96,7 @@ namespace QuizLibrary
 
         public void DeteleCategory(int index)
         {
-            entities.deleteCategory(index);
+            entities.DeleteCategory(index);
         }
     }
 }
