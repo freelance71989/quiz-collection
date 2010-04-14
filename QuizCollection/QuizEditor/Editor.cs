@@ -82,7 +82,7 @@ namespace QuizEditor
                 textBoxQuestion.Enabled = true;
                 comboBoxCategory.Enabled = true;
                 labelDifficulty.Enabled = true;
-                deleteQuestion.Enabled = true;
+                buttonDeletQuestion.Enabled = true;
                 buttonImage.Enabled = true;
                 buttonSound.Enabled = true;
                 buttonCreateAnswer.Enabled = true;
@@ -104,7 +104,7 @@ namespace QuizEditor
                 textBoxQuestion.Enabled = false;
                 comboBoxCategory.Enabled = false;
                 labelDifficulty.Enabled = false;
-                deleteQuestion.Enabled = false;
+                buttonDeletQuestion.Enabled = false;
                 buttonImage.Enabled = false;
                 buttonSound.Enabled = false;
                 buttonCreateAnswer.Enabled = false;
