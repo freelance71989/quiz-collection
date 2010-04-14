@@ -47,7 +47,7 @@
             this.listBoxQuestionList = new System.Windows.Forms.ListBox();
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.buttonNewQuestion = new System.Windows.Forms.Button();
-            this.deleteQuestion = new System.Windows.Forms.Button();
+            this.buttonDeletQuestion = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -275,7 +275,7 @@
             // 
             // splitContainer8.Panel2
             // 
-            this.splitContainer8.Panel2.Controls.Add(this.deleteQuestion);
+            this.splitContainer8.Panel2.Controls.Add(this.buttonDeletQuestion);
             this.splitContainer8.Size = new System.Drawing.Size(229, 42);
             this.splitContainer8.SplitterDistance = 108;
             this.splitContainer8.TabIndex = 0;
@@ -293,19 +293,19 @@
             this.buttonNewQuestion.UseVisualStyleBackColor = true;
             this.buttonNewQuestion.Click += new System.EventHandler(this.ButtonAddQuestion);
             // 
-            // deleteQuestion
+            // buttonDeletQuestion
             // 
-            this.deleteQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonDeletQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteQuestion.Enabled = false;
-            this.deleteQuestion.Location = new System.Drawing.Point(4, 4);
-            this.deleteQuestion.Name = "deleteQuestion";
-            this.deleteQuestion.Size = new System.Drawing.Size(111, 35);
-            this.deleteQuestion.TabIndex = 0;
-            this.deleteQuestion.Text = "Borrar Pregunta";
-            this.deleteQuestion.UseVisualStyleBackColor = true;
-            this.deleteQuestion.Click += new System.EventHandler(this.ButtonDeleteQuestion);
+            this.buttonDeletQuestion.Enabled = false;
+            this.buttonDeletQuestion.Location = new System.Drawing.Point(4, 4);
+            this.buttonDeletQuestion.Name = "buttonDeletQuestion";
+            this.buttonDeletQuestion.Size = new System.Drawing.Size(111, 35);
+            this.buttonDeletQuestion.TabIndex = 0;
+            this.buttonDeletQuestion.Text = "Borrar Pregunta";
+            this.buttonDeletQuestion.UseVisualStyleBackColor = true;
+            this.buttonDeletQuestion.Click += new System.EventHandler(this.ButtonDeleteQuestion);
             // 
             // splitContainer3
             // 
@@ -772,7 +772,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.Button buttonNewQuestion;
-        private System.Windows.Forms.Button deleteQuestion;
+        private System.Windows.Forms.Button buttonDeletQuestion;
         private System.Windows.Forms.Button buttonEditAnswer;
         private System.Windows.Forms.Button buttonDeleteAnswer;
         private System.Windows.Forms.Button buttonCreateAnswer;
