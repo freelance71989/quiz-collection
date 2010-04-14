@@ -1,6 +1,6 @@
 ﻿namespace QuizEditor
 {
-    partial class Editor
+    partial class formEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEditor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.conectarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemConnect = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSaveAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.editorDeCategoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elementosFijosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.buttonSaveQuestion = new System.Windows.Forms.ToolStripButton();
+            this.buttonLoadAll = new System.Windows.Forms.ToolStripButton();
             this.buttonSaveAllQuestion = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.questionList = new System.Windows.Forms.ListBox();
+            this.listBoxQuestionList = new System.Windows.Forms.ListBox();
             this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.newQuestion = new System.Windows.Forms.Button();
+            this.buttonNewQuestion = new System.Windows.Forms.Button();
             this.deleteQuestion = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -69,13 +69,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.answersList = new System.Windows.Forms.ListBox();
+            this.listBoxAnswersList = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCreateAnswer = new System.Windows.Forms.Button();
             this.buttonEditAnswer = new System.Windows.Forms.Button();
             this.buttonDeleteAnswer = new System.Windows.Forms.Button();
-            this.openImageFile = new System.Windows.Forms.OpenFileDialog();
-            this.openSoundFile = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogImageFile = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogSoundFile = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,51 +112,51 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.herramientasToolStripMenuItem,
-            this.ayudaToolStripMenuItem});
+            this.toolStripMenuItemArchivo,
+            this.toolStripMenuItemHerramientas,
+            this.toolStripMenuItemHelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(706, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
+            // toolStripMenuItemArchivo
             // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.conectarBDToolStripMenuItem,
-            this.guardarCambiosToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
+            this.toolStripMenuItemArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemConnect,
+            this.toolStripMenuItemSaveAll,
+            this.toolStripMenuItemExit});
+            this.toolStripMenuItemArchivo.Name = "toolStripMenuItemArchivo";
+            this.toolStripMenuItemArchivo.Size = new System.Drawing.Size(60, 20);
+            this.toolStripMenuItemArchivo.Text = "Archivo";
             // 
-            // conectarBDToolStripMenuItem
+            // toolStripMenuItemConnect
             // 
-            this.conectarBDToolStripMenuItem.Name = "conectarBDToolStripMenuItem";
-            this.conectarBDToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.conectarBDToolStripMenuItem.Text = "Conectar BD";
+            this.toolStripMenuItemConnect.Name = "toolStripMenuItemConnect";
+            this.toolStripMenuItemConnect.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemConnect.Text = "Cargar de base de datos";
             // 
-            // guardarCambiosToolStripMenuItem
+            // toolStripMenuItemSaveAll
             // 
-            this.guardarCambiosToolStripMenuItem.Name = "guardarCambiosToolStripMenuItem";
-            this.guardarCambiosToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.guardarCambiosToolStripMenuItem.Text = "Guardar Cambios";
+            this.toolStripMenuItemSaveAll.Name = "toolStripMenuItemSaveAll";
+            this.toolStripMenuItemSaveAll.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemSaveAll.Text = "Guardar cambios";
             // 
-            // salirToolStripMenuItem
+            // toolStripMenuItemExit
             // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
+            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemExit.Text = "Salir";
             // 
-            // herramientasToolStripMenuItem
+            // toolStripMenuItemHerramientas
             // 
-            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editorDeCategoriasToolStripMenuItem,
             this.elementosFijosToolStripMenuItem});
-            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            this.toolStripMenuItemHerramientas.Name = "toolStripMenuItemHerramientas";
+            this.toolStripMenuItemHerramientas.Size = new System.Drawing.Size(90, 20);
+            this.toolStripMenuItemHerramientas.Text = "Herramientas";
             // 
             // editorDeCategoriasToolStripMenuItem
             // 
@@ -171,24 +171,24 @@
             this.elementosFijosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.elementosFijosToolStripMenuItem.Text = "Elementos fijos";
             // 
-            // ayudaToolStripMenuItem
+            // toolStripMenuItemHelp
             // 
-            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem});
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.toolStripMenuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAcercaDe});
+            this.toolStripMenuItemHelp.Name = "toolStripMenuItemHelp";
+            this.toolStripMenuItemHelp.Size = new System.Drawing.Size(53, 20);
+            this.toolStripMenuItemHelp.Text = "Ayuda";
             // 
-            // acercaDeToolStripMenuItem
+            // toolStripMenuItemAcercaDe
             // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.acercaDeToolStripMenuItem.Text = "Acerca de";
+            this.toolStripMenuItemAcercaDe.Name = "toolStripMenuItemAcercaDe";
+            this.toolStripMenuItemAcercaDe.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItemAcercaDe.Text = "Acerca de";
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buttonSaveQuestion,
+            this.buttonLoadAll,
             this.buttonSaveAllQuestion});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -196,15 +196,15 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // buttonSaveQuestion
+            // buttonLoadAll
             // 
-            this.buttonSaveQuestion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonSaveQuestion.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveQuestion.Image")));
-            this.buttonSaveQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonSaveQuestion.Name = "buttonSaveQuestion";
-            this.buttonSaveQuestion.Size = new System.Drawing.Size(23, 22);
-            this.buttonSaveQuestion.Text = "Guardar Cambios en la pregunta";
-            this.buttonSaveQuestion.Click += new System.EventHandler(this.SaveChange);
+            this.buttonLoadAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonLoadAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonLoadAll.Image")));
+            this.buttonLoadAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonLoadAll.Name = "buttonLoadAll";
+            this.buttonLoadAll.Size = new System.Drawing.Size(23, 22);
+            this.buttonLoadAll.Text = "Cargar Lista";
+            this.buttonLoadAll.Click += new System.EventHandler(this.ToolLoad);
             // 
             // buttonSaveAllQuestion
             // 
@@ -214,7 +214,7 @@
             this.buttonSaveAllQuestion.Name = "buttonSaveAllQuestion";
             this.buttonSaveAllQuestion.Size = new System.Drawing.Size(23, 22);
             this.buttonSaveAllQuestion.Text = "Guardar todos los cambios";
-            this.buttonSaveAllQuestion.Click += new System.EventHandler(this.SaveAllChanges);
+            this.buttonSaveAllQuestion.Click += new System.EventHandler(this.SaveAll);
             // 
             // splitContainer1
             // 
@@ -242,7 +242,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.questionList);
+            this.splitContainer2.Panel1.Controls.Add(this.listBoxQuestionList);
             // 
             // splitContainer2.Panel2
             // 
@@ -251,17 +251,17 @@
             this.splitContainer2.SplitterDistance = 353;
             this.splitContainer2.TabIndex = 0;
             // 
-            // questionList
+            // listBoxQuestionList
             // 
-            this.questionList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.listBoxQuestionList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.questionList.FormattingEnabled = true;
-            this.questionList.Location = new System.Drawing.Point(0, 0);
-            this.questionList.Name = "questionList";
-            this.questionList.Size = new System.Drawing.Size(229, 355);
-            this.questionList.TabIndex = 0;
-            this.questionList.SelectedIndexChanged += new System.EventHandler(this.questionList_SelectedIndexChanged);
+            this.listBoxQuestionList.FormattingEnabled = true;
+            this.listBoxQuestionList.Location = new System.Drawing.Point(0, 0);
+            this.listBoxQuestionList.Name = "listBoxQuestionList";
+            this.listBoxQuestionList.Size = new System.Drawing.Size(229, 355);
+            this.listBoxQuestionList.TabIndex = 0;
+            this.listBoxQuestionList.SelectedIndexChanged += new System.EventHandler(this.questionList_SelectedIndexChanged);
             // 
             // splitContainer8
             // 
@@ -271,7 +271,7 @@
             // 
             // splitContainer8.Panel1
             // 
-            this.splitContainer8.Panel1.Controls.Add(this.newQuestion);
+            this.splitContainer8.Panel1.Controls.Add(this.buttonNewQuestion);
             // 
             // splitContainer8.Panel2
             // 
@@ -280,18 +280,18 @@
             this.splitContainer8.SplitterDistance = 108;
             this.splitContainer8.TabIndex = 0;
             // 
-            // newQuestion
+            // buttonNewQuestion
             // 
-            this.newQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.buttonNewQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.newQuestion.Location = new System.Drawing.Point(4, 5);
-            this.newQuestion.Name = "newQuestion";
-            this.newQuestion.Size = new System.Drawing.Size(101, 34);
-            this.newQuestion.TabIndex = 0;
-            this.newQuestion.Text = "Nueva Pregunta";
-            this.newQuestion.UseVisualStyleBackColor = true;
-            this.newQuestion.Click += new System.EventHandler(this.ButtonAddQuestion);
+            this.buttonNewQuestion.Location = new System.Drawing.Point(4, 5);
+            this.buttonNewQuestion.Name = "buttonNewQuestion";
+            this.buttonNewQuestion.Size = new System.Drawing.Size(101, 34);
+            this.buttonNewQuestion.TabIndex = 0;
+            this.buttonNewQuestion.Text = "Nueva Pregunta";
+            this.buttonNewQuestion.UseVisualStyleBackColor = true;
+            this.buttonNewQuestion.Click += new System.EventHandler(this.ButtonAddQuestion);
             // 
             // deleteQuestion
             // 
@@ -591,7 +591,7 @@
             // 
             // splitContainer7.Panel1
             // 
-            this.splitContainer7.Panel1.Controls.Add(this.answersList);
+            this.splitContainer7.Panel1.Controls.Add(this.listBoxAnswersList);
             // 
             // splitContainer7.Panel2
             // 
@@ -600,17 +600,17 @@
             this.splitContainer7.SplitterDistance = 338;
             this.splitContainer7.TabIndex = 0;
             // 
-            // answersList
+            // listBoxAnswersList
             // 
-            this.answersList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.listBoxAnswersList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.answersList.FormattingEnabled = true;
-            this.answersList.Location = new System.Drawing.Point(0, 0);
-            this.answersList.Name = "answersList";
-            this.answersList.Size = new System.Drawing.Size(335, 160);
-            this.answersList.TabIndex = 0;
-            this.answersList.SelectedIndexChanged += new System.EventHandler(this.SelectAnswer);
+            this.listBoxAnswersList.FormattingEnabled = true;
+            this.listBoxAnswersList.Location = new System.Drawing.Point(0, 0);
+            this.listBoxAnswersList.Name = "listBoxAnswersList";
+            this.listBoxAnswersList.Size = new System.Drawing.Size(335, 160);
+            this.listBoxAnswersList.TabIndex = 0;
+            this.listBoxAnswersList.SelectedIndexChanged += new System.EventHandler(this.SelectAnswer);
             // 
             // tableLayoutPanel2
             // 
@@ -672,15 +672,15 @@
             this.buttonDeleteAnswer.Text = "Borrar";
             this.buttonDeleteAnswer.UseVisualStyleBackColor = true;
             // 
-            // openImageFile
+            // openFileDialogImageFile
             // 
-            this.openImageFile.FileName = "openFileDialog1";
+            this.openFileDialogImageFile.FileName = "openFileDialog1";
             // 
-            // openSoundFile
+            // openFileDialogSoundFile
             // 
-            this.openSoundFile.FileName = "openFileDialog2";
+            this.openFileDialogSoundFile.FileName = "openFileDialog2";
             // 
-            // Editor
+            // formEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -689,7 +689,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Editor";
+            this.Name = "formEditor";
             this.Text = "QuizEditor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -740,15 +740,15 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListBox questionList;
+        private System.Windows.Forms.ListBox listBoxQuestionList;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemArchivo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHerramientas;
         private System.Windows.Forms.ToolStripMenuItem editorDeCategoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem elementosFijosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelp;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAcercaDe;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox textBoxQuestion;
@@ -768,20 +768,20 @@
         private System.Windows.Forms.TextBox textBoxSoundRute;
         private System.Windows.Forms.Button buttonSound;
         private System.Windows.Forms.SplitContainer splitContainer7;
-        private System.Windows.Forms.ListBox answersList;
+        private System.Windows.Forms.ListBox listBoxAnswersList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer8;
-        private System.Windows.Forms.Button newQuestion;
+        private System.Windows.Forms.Button buttonNewQuestion;
         private System.Windows.Forms.Button deleteQuestion;
         private System.Windows.Forms.Button buttonEditAnswer;
         private System.Windows.Forms.Button buttonDeleteAnswer;
         private System.Windows.Forms.Button buttonCreateAnswer;
-        private System.Windows.Forms.ToolStripMenuItem conectarBDToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openImageFile;
-        private System.Windows.Forms.OpenFileDialog openSoundFile;
-        private System.Windows.Forms.ToolStripMenuItem guardarCambiosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton buttonSaveQuestion;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemConnect;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImageFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialogSoundFile;
         private System.Windows.Forms.ToolStripButton buttonSaveAllQuestion;
+        private System.Windows.Forms.ToolStripButton buttonLoadAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSaveAll;
     }
 }

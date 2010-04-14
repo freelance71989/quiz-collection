@@ -10,24 +10,61 @@ using QuizLibrary;
 
 namespace QuizEditor
 {
-    public partial class Editor : Form
+    public partial class formEditor : Form
     {
         private CategoryEditor formCategory;
-        List<int> deleteIndex = new List<int>();
-        public Editor()
+        private HashSet<Object> editQuestions;
+        private HashSet<Object> deleteQuestions;
+        private HashSet<Object> newQuestions;
+        private Logica logic;
+
+        public formEditor()
         {
             InitializeComponent();
-
-            Logica logic = new Logica();
-            List<Category> categories = logic.GetAllCategories();
-            List<Question> questions = logic.GetAllQuestion();
-
-            questionList.Items.AddRange(questions.ToArray());
-            comboBoxCategory.Items.AddRange(categories.ToArray());
-
+            logic = new Logica();
+            editQuestions = new HashSet<Object>();
+            deleteQuestions = new HashSet<Object>();
+            newQuestions = new HashSet<Object>();
             formCategory = new CategoryEditor();
+            LoadQuestions();
+            LoadCategories();
+        }
+
+        private void LoadCategories()
+        {
+            List<Category> categories = logic.GetAllCategories();
+            comboBoxCategory.Items.AddRange(categories.ToArray());
+            formCategory.categoryList.Items.Clear();
             formCategory.categoryList.Items.AddRange(categories.ToArray());
-            
+        }
+
+        private void LoadQuestions()
+        {
+            if (newQuestions.Count != 0)
+            {
+                //eliminar de la base de datos;
+            }
+            editQuestions.Clear();
+            deleteQuestions.Clear();
+            List<Question> questions = logic.GetAllQuestion();
+            listBoxQuestionList.Items.AddRange(questions.ToArray());
+        }
+
+        private void SaveAll(object sender, EventArgs e)
+        {
+            foreach (Question question in editQuestions)
+            {
+                logic.CreateQuestion(question);
+            }
+            foreach (Question question in deleteQuestions)
+            {
+                logic.DeleteQuestion(question);
+            }
+
+            newQuestions.Clear();
+
+            LoadQuestions();
+            LoadCategories();
         }
 
         private void editorDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,7 +74,7 @@ namespace QuizEditor
 
         private void questionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (questionList.SelectedItem != null)
+            if (listBoxQuestionList.SelectedItem != null)
             {
                 //activar elementos
                 textBoxImageRute.Enabled = true;
@@ -50,14 +87,14 @@ namespace QuizEditor
                 buttonSound.Enabled = true;
                 buttonCreateAnswer.Enabled = true;
                 trackBarDifficulty.Enabled = true;
-                //lalalalal
-                Question quest = (Question)questionList.Items[questionList.SelectedIndex];
+                //escritura de datos
+                Question quest = (Question)listBoxQuestionList.Items[listBoxQuestionList.SelectedIndex];
                 textBoxQuestion.Text = quest.QuestionText;
                 comboBoxCategory.SelectedItem = quest.Category; //??
                 trackBarDifficulty.Value = quest.Difficulty - 1;
                 labelDifficulty.Text = quest.Difficulty.ToString();
-                answersList.Items.Clear();
-                answersList.Items.AddRange(quest.Answers.ToArray());
+                listBoxAnswersList.Items.Clear();
+                listBoxAnswersList.Items.AddRange(quest.Answers.ToArray());
             }
             else
             {
@@ -74,11 +111,11 @@ namespace QuizEditor
                 buttonDeleteAnswer.Enabled = false;
                 buttonEditAnswer.Enabled = false;
                 trackBarDifficulty.Enabled = false;
-                //procesos
+                //escritura de datos
                 textBoxQuestion.Text = "";
                 trackBarDifficulty.Value = 0;
                 labelDifficulty.Text = Convert.ToString(1);
-                answersList.Items.Clear();
+                listBoxAnswersList.Items.Clear();
             }
         }
 
@@ -91,9 +128,9 @@ namespace QuizEditor
         private void ChangeTextDifficulty(object sender, EventArgs e)
         {
             labelDifficulty.Text = Convert.ToString(trackBarDifficulty.Value + 1);
-            if (questionList.SelectedItem != null)
+            if (listBoxQuestionList.SelectedItem != null)
             {
-                ((Question)questionList.SelectedItem).Difficulty = trackBarDifficulty.Value + 1;
+                ((Question)listBoxQuestionList.SelectedItem).Difficulty = trackBarDifficulty.Value + 1;
             }
         }
 
@@ -107,7 +144,7 @@ namespace QuizEditor
 
             String name = "Nueva Pregunta";
             int count = 0;
-            foreach (Question item in questionList.Items)
+            foreach (Question item in listBoxQuestionList.Items)
             {
                 if (item.QuestionText.Contains(name))
                     count++;
@@ -120,13 +157,26 @@ namespace QuizEditor
             {
                 category = (Category)comboBoxCategory.Items[0];
             }
-            questionList.Items.Add(new Question(name,answers,category,1));
+            Question quest = logic.CreateQuestion(new Question(name, answers, category, 1));
+
+            listBoxQuestionList.Items.Add(quest);
+            newQuestions.Add(listBoxQuestionList.Items[listBoxQuestionList.Items.Count - 1]);
+
         }
 
         private void ButtonDeleteQuestion(object sender, EventArgs e)
         {
-            var toRemove = questionList.SelectedItem;
-            questionList.Items.Remove(toRemove);
+            int index = listBoxQuestionList.SelectedIndex;
+            var toRemove = listBoxQuestionList.SelectedItem;
+            listBoxQuestionList.Items.Remove(toRemove);
+            deleteQuestions.Add(toRemove);
+            if (index != 0)
+                listBoxQuestionList.SelectedIndex = index - 1;
+            else
+	        {
+                if (listBoxQuestionList.Items.Count != 0)
+                    listBoxQuestionList.SelectedIndex = 0;
+	        }            
         }
 
         private void ButtonAnswerEditor(object sender, EventArgs e)
@@ -143,7 +193,7 @@ namespace QuizEditor
 
         private void SelectAnswer(object sender, EventArgs e)
         {
-            if (answersList.SelectedItem != null)
+            if (listBoxAnswersList.SelectedItem != null)
             {
                 //activar elementos
                 buttonEditAnswer.Enabled = true;
@@ -158,60 +208,43 @@ namespace QuizEditor
 
         private void OpenFileImage(object sender, EventArgs e)
         {
-            DialogResult r = openImageFile.ShowDialog();
+            DialogResult r = openFileDialogImageFile.ShowDialog();
             if (r == DialogResult.OK)
             {
-                String file = openImageFile.FileName;
+                String file = openFileDialogImageFile.FileName;
                 textBoxImageRute.Text = file;
             }
         }
 
         private void OpenFileSound(object sender, EventArgs e)
         {
-            DialogResult r = openSoundFile.ShowDialog();
+            DialogResult r = openFileDialogSoundFile.ShowDialog();
             if (r == DialogResult.OK)
             {
-                String file = openSoundFile.FileName;
+                String file = openFileDialogSoundFile.FileName;
                 textBoxSoundRute.Text = file;
             }
         }
 
         private void ChangeQuestionText(object sender, EventArgs e)
         {
-            if (questionList.SelectedItem != null)
+            if (listBoxQuestionList.SelectedItem != null)
             {
-                ((Question)questionList.SelectedItem).QuestionText = textBoxQuestion.Text;
+                ((Question)listBoxQuestionList.SelectedItem).QuestionText = textBoxQuestion.Text;
             }
         }
 
         private void ChangeCategoryQuestion(object sender, EventArgs e)
         {
-            if (questionList.SelectedItem != null)
+            if (listBoxQuestionList.SelectedItem != null)
             {
-                ((Question)questionList.SelectedItem).Category = (Category)comboBoxCategory.SelectedItem;
+                ((Question)listBoxQuestionList.SelectedItem).Category = (Category)comboBoxCategory.SelectedItem;
             }
         }
 
-        private void SaveAllChanges(object sender, EventArgs e)
+        private void ToolLoad(object sender, EventArgs e)
         {
-            Logica logic = new Logica();
-            foreach (Question question in questionList.Items)
-            {
-                logic.CreateQuestion(question);
-            }
-            foreach (int index in deleteIndex)
-            {
-                logic.DeteleCategory(index);
-            }
-            questionList.Items.Clear();
-            questionList.Items.AddRange(logic.GetAllQuestion().ToArray());
-            deleteIndex.Clear();
-        }
 
-        private void SaveChange(object sender, EventArgs e)
-        {
-            Logica logic = new Logica();
-            logic.CreateQuestion((Question)questionList.SelectedItem);
         }
 
     }

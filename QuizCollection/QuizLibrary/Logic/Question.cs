@@ -159,6 +159,18 @@ namespace QuizLibrary
             Answers.RemoveAt(index);
         }
 
+        public override bool Equals(object obj)
+        {
+            Boolean res= false;
+            if (obj is Question)
+            {
+                 res = this.idQuestion == ((Question)obj).idQuestion;
+            }
+
+            return res;
+
+        }
+
         public override string ToString()
         {
             return this.idQuestion+", "+this.questionText;

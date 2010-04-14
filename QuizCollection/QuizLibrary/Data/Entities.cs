@@ -27,6 +27,9 @@ namespace QuizLibrary
             qe.Sound = question.Sound;
             data.AddToQuestionEntities(qe);
             data.SaveChanges();
+            foreach (var ans in question.Answers)
+                this.AddAnswer(ans, qe.IdQuestion);
+            data.SaveChanges();
 
             return qe.IdQuestion;
         }
@@ -37,8 +40,6 @@ namespace QuizLibrary
             qe.Question = question.QuestionText;
             qe.Category = data.CategoryEntities.First(x => x.Category == question.Category.CategoryText);
             qe.Difficulty = Convert.ToByte(question.Difficulty);
-
-            //lalalalal
             qe.Answers.Clear();
             foreach (var ans in question.Answers)
                 this.AddAnswer(ans, qe.IdQuestion);
@@ -89,6 +90,18 @@ namespace QuizLibrary
             return data.QuestionEntities.Count(x => x.IdQuestion == idQuestion) != 0;
         }
 
+        public void DeleteQuestion(int idQuestion)
+        {
+            QuestionEntity qe = data.QuestionEntities.Include("Answers").First(x => x.IdQuestion == idQuestion);
+            //POTO SANGRE CON CRECES!!!!
+            foreach (var a in qe.Answers.ToArray())
+            {
+                DeleteAnswer(a.IdAnswer);
+            }
+            data.DeleteObject(qe);
+            data.SaveChanges();
+        }
+
         //answer
 
         public int AddAnswer(Answer answer, int idQuestion)
@@ -117,6 +130,12 @@ namespace QuizLibrary
             }
             return res;
 
+        }
+        public void DeleteAnswer(int idAnswer)
+        {
+            AnswerEntity ae = data.AnswerEntities.First(x => x.IdAnswer == idAnswer);
+            data.DeleteObject(ae);
+            data.SaveChanges();
         }
 
         //category
@@ -181,7 +200,7 @@ namespace QuizLibrary
             }).ToList<Category>();
         }
 
-        public void deleteCategory(int index)
+        public void DeleteCategory(int index)
         {
             CategoryEntity ce = data.CategoryEntities.First(x => x.IdCategory == index);
             data.DeleteObject(ce);
