@@ -12,21 +12,28 @@ namespace QuizEditor
 {
     public partial class CategoryEditor : Form
     {
-        private List<int> deteleIndex = new List<int>();
+        private HashSet<Object> deleteCategories;
+        private HashSet<Object> changeCategories;
+        private HashSet<Object> newCategories;
+        private Logica logic;
 
         public CategoryEditor()
         {
             InitializeComponent();
+            logic = new Logica();
+            deleteCategories = new HashSet<Object>();
+            changeCategories = new HashSet<Object>();
+            newCategories = new HashSet<Object>();
         }
 
         private void EliminarCategoria(object sender, EventArgs e)
         {
-            var toRemove = categoryList.SelectedItem;
-            if (((Category)toRemove).IdCategory != -1)
+            if (logic.GetNumberOfQuestionInCategory((Category)categoryList.SelectedItem) == 0)
             {
-                deteleIndex.Add(((Category)toRemove).IdCategory);
+                var toRemove = categoryList.SelectedItem;
+                deleteCategories.Add(toRemove);
+                categoryList.Items.Remove(toRemove);
             }
-            categoryList.Items.Remove(toRemove);
         }
 
         private void CambioNombreCategoria(object sender, EventArgs e)
@@ -58,13 +65,17 @@ namespace QuizEditor
             }
             if (count != 0)
                 name += " " + count;
-            categoryList.Items.Add(new Category() { IdCategory = -1, CategoryText = name });
+            Category category = new Category() { IdCategory = -1, CategoryText = name };
+            category.IdCategory = logic.CreateCategory(category);
+            newCategories.Add(category);
+            categoryList.Items.Add(category);
         }
 
         private void SelectCategoryIndex(object sender, EventArgs e)
         {
             if (categoryList.SelectedItem != null)
             {
+                changeCategories.Add(categoryList.SelectedItem);
                 //activar elementos
                 buttonEraseCategory.Enabled = true;
                 textBoxCategory.Enabled = true;
@@ -88,27 +99,37 @@ namespace QuizEditor
 
         private void DiscardChanges(object sender, EventArgs e)
         {
+            foreach (Category category in newCategories)
+            {
+                logic.DeteleCategory(category.IdCategory);
+            }
             categoryList.Items.Clear();
-            Logica logic = new Logica();
             categoryList.Items.AddRange(logic.GetAllCategories().ToArray());
-            deteleIndex.Clear();
+            deleteCategories.Clear();
+            changeCategories.Clear();
+            newCategories.Clear();
             this.Close();
         }
 
         private void AceptChanges(object sender, EventArgs e)
         {
-            Logica logic = new Logica();
-            foreach (Category category in categoryList.Items)
+            foreach (Category category in changeCategories)
             {
                 logic.CreateCategory(category);
             }
-            foreach (int index in deteleIndex)
+            foreach (Category category in newCategories)
             {
-                logic.DeteleCategory(index);
+                logic.CreateCategory(category);
+            }
+            foreach (Category category in deleteCategories)
+            {
+                logic.DeteleCategory(category.IdCategory);
             }
             categoryList.Items.Clear();
             categoryList.Items.AddRange(logic.GetAllCategories().ToArray());
-            deteleIndex.Clear();
+            deleteCategories.Clear();
+            changeCategories.Clear();
+            newCategories.Clear();
             this.Close();
         }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuizLibrary
 {
-    public class Question
+    public class Question : IEquatable<Question>
     {
         private int idQuestion;
         private String questionText;
@@ -159,21 +159,24 @@ namespace QuizLibrary
             Answers.RemoveAt(index);
         }
 
-        public override bool Equals(object obj)
-        {
-            Boolean res= false;
-            if (obj is Question)
-            {
-                 res = this.idQuestion == ((Question)obj).idQuestion;
-            }
-
-            return res;
-
-        }
-
         public override string ToString()
         {
             return this.idQuestion+", "+this.questionText;
         }
+
+        #region Miembros de IEquatable<Question>
+
+        public bool Equals(Question other)
+        {
+            Boolean res = false;
+            if (other != null)
+            {
+                res = this.idQuestion == other.idQuestion;
+            }
+
+            return res;
+        }
+
+        #endregion
     }
 }

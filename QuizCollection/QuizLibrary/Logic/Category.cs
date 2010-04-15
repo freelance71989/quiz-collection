@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuizLibrary
 {
-    public class Category
+    public class Category : IEquatable<Category>
     {
         private int idCategory;
         private String categoryText;
@@ -48,5 +48,19 @@ namespace QuizLibrary
         {
             return this.categoryText;
         }
+
+        #region Miembros de IEquatable<Category>
+
+        public bool Equals(Category other)
+        {
+            bool res = false;
+            if (other != null)
+            {
+                res = idCategory == other.idCategory;
+            }
+            return res;
+        }
+
+        #endregion
     }
 }

@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizGame", "QuizGame\QuizGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizLibrary", "QuizLibrary\QuizLibrary.csproj", "{1F4D6950-B917-440B-A990-8862A6FA9107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizTest", "QuizTest\QuizTest.csproj", "{C29FCF32-5F78-4871-BED5-2E4BA780C070}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizTest", "..\QuizTest\QuizTest.csproj", "{C29FCF32-5F78-4871-BED5-2E4BA780C070}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
