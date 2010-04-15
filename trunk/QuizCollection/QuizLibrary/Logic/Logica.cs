@@ -18,8 +18,6 @@ namespace QuizLibrary
             if (idQuestion == -1)
             {
                 idQuestion = entities.AddQuestion(question);
-                //foreach (var ans in question.Answers)
-                //    entities.AddAnswer(ans, idQuestion);
             }
             else
             {
@@ -97,6 +95,11 @@ namespace QuizLibrary
         public void DeteleCategory(int index)
         {
             entities.DeleteCategory(index);
+        }
+
+        public int GetNumberOfQuestionInCategory(Category cate)
+        {
+            return entities.GetNumberOfQuestionInCategory(cate.IdCategory);
         }
     }
 }

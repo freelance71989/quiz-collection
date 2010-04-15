@@ -37,10 +37,14 @@ namespace QuizLibrary
         public void UpdateQuestion(Question question)
         {
             QuestionEntity qe = data.QuestionEntities.First(x => x.IdQuestion == question.IdQuestion);
+            qe.Answers.Load();
             qe.Question = question.QuestionText;
             qe.Category = data.CategoryEntities.First(x => x.Category == question.Category.CategoryText);
             qe.Difficulty = Convert.ToByte(question.Difficulty);
-            qe.Answers.Clear();
+            foreach (var ans in qe.Answers.ToArray())
+            {
+                DeleteAnswer(ans.IdAnswer);
+            }
             foreach (var ans in question.Answers)
                 this.AddAnswer(ans, qe.IdQuestion);
             qe.Image = question.Image;
@@ -93,7 +97,6 @@ namespace QuizLibrary
         public void DeleteQuestion(int idQuestion)
         {
             QuestionEntity qe = data.QuestionEntities.Include("Answers").First(x => x.IdQuestion == idQuestion);
-            //POTO SANGRE CON CRECES!!!!
             foreach (var a in qe.Answers.ToArray())
             {
                 DeleteAnswer(a.IdAnswer);
@@ -205,6 +208,11 @@ namespace QuizLibrary
             CategoryEntity ce = data.CategoryEntities.First(x => x.IdCategory == index);
             data.DeleteObject(ce);
             data.SaveChanges();
+        }
+
+        public int GetNumberOfQuestionInCategory(int IdCategory)
+        {
+            return data.CategoryEntities.First(x => x.IdCategory == IdCategory).Questions.Count;
         }
 
         //user

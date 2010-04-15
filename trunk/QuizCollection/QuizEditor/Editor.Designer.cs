@@ -136,12 +136,14 @@
             this.toolStripMenuItemConnect.Name = "toolStripMenuItemConnect";
             this.toolStripMenuItemConnect.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItemConnect.Text = "Cargar de base de datos";
+            this.toolStripMenuItemConnect.Click += new System.EventHandler(this.LoadAll);
             // 
             // toolStripMenuItemSaveAll
             // 
             this.toolStripMenuItemSaveAll.Name = "toolStripMenuItemSaveAll";
             this.toolStripMenuItemSaveAll.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItemSaveAll.Text = "Guardar cambios";
+            this.toolStripMenuItemSaveAll.Click += new System.EventHandler(this.SaveAll);
             // 
             // toolStripMenuItemExit
             // 
@@ -204,7 +206,7 @@
             this.buttonLoadAll.Name = "buttonLoadAll";
             this.buttonLoadAll.Size = new System.Drawing.Size(23, 22);
             this.buttonLoadAll.Text = "Cargar Lista";
-            this.buttonLoadAll.Click += new System.EventHandler(this.ToolLoad);
+            this.buttonLoadAll.Click += new System.EventHandler(this.LoadAll);
             // 
             // buttonSaveAllQuestion
             // 
@@ -291,7 +293,7 @@
             this.buttonNewQuestion.TabIndex = 0;
             this.buttonNewQuestion.Text = "Nueva Pregunta";
             this.buttonNewQuestion.UseVisualStyleBackColor = true;
-            this.buttonNewQuestion.Click += new System.EventHandler(this.ButtonAddQuestion);
+            this.buttonNewQuestion.Click += new System.EventHandler(this.AddQuestion);
             // 
             // buttonDeletQuestion
             // 
@@ -305,7 +307,7 @@
             this.buttonDeletQuestion.TabIndex = 0;
             this.buttonDeletQuestion.Text = "Borrar Pregunta";
             this.buttonDeletQuestion.UseVisualStyleBackColor = true;
-            this.buttonDeletQuestion.Click += new System.EventHandler(this.ButtonDeleteQuestion);
+            this.buttonDeletQuestion.Click += new System.EventHandler(this.DeleteQuestion);
             // 
             // splitContainer3
             // 
