@@ -15,6 +15,11 @@ namespace QuizLibrary
             data = new QuizLibrary.Data.DataBase();
         }
 
+        public void SaveChanges()
+        {
+            data.SaveChanges();
+        }
+
         //question
 
         public int AddQuestion(Question question)
@@ -57,12 +62,9 @@ namespace QuizLibrary
         {
             var questEntity = data.QuestionEntities.First(x => x.IdQuestion == idQuestion);
             questEntity.CategoryReference.Load();
-
             Category category = GetCategory(questEntity.Category.IdCategory);
-            
             List<Answer> answers = GetAnswers(idQuestion);
             Question res = new Question();
-
             res.IdQuestion = idQuestion;
             res.QuestionText = questEntity.Question;
             res.Category = category;
@@ -84,15 +86,15 @@ namespace QuizLibrary
             return questions;
         }
 
-        public int LastIdQuestion()
-        {
-            return data.QuestionEntities.Max(x => x.IdQuestion);
-        }
+        //public int LastIdQuestion()
+        //{
+        //    return data.QuestionEntities.Max(x => x.IdQuestion);
+        //}
 
-        public Boolean ExistQuestion(int idQuestion)
-        {
-            return data.QuestionEntities.Count(x => x.IdQuestion == idQuestion) != 0;
-        }
+        //public Boolean ExistQuestion(int idQuestion)
+        //{
+        //    return data.QuestionEntities.Count(x => x.IdQuestion == idQuestion) != 0;
+        //}
 
         public void DeleteQuestion(int idQuestion)
         {
@@ -161,16 +163,16 @@ namespace QuizLibrary
             data.SaveChanges();
         }
 
-        public Category GetCategory(String category)
-        {
-            Category res = new Category();
-            var ce = data.CategoryEntities.First(x => x.Category == category);
-            res.IdCategory = ce.IdCategory;
-            res.CategoryText = ce.Category;
-            res.Description = ce.Description;
+        //public Category GetCategory(String category)
+        //{
+        //    Category res = new Category();
+        //    var ce = data.CategoryEntities.First(x => x.Category == category);
+        //    res.IdCategory = ce.IdCategory;
+        //    res.CategoryText = ce.Category;
+        //    res.Description = ce.Description;
 
-            return res;
-        }
+        //    return res;
+        //}
 
         public Category GetCategory(int idCategory)
         {
@@ -183,15 +185,15 @@ namespace QuizLibrary
             return res;
         }
 
-        public Boolean ExistCategory(int idCategory) 
+        public Boolean ExistCategory(int idCategory)
         {
             return data.CategoryEntities.Count(x => x.IdCategory == idCategory) != 0;
         }
 
-        public Boolean ExistCategory(String category)
-        {
-            return data.CategoryEntities.Count(x => x.Category.ToLower() == category.ToLower()) != 0;
-        }
+        //public Boolean ExistCategory(String category)
+        //{
+        //    return data.CategoryEntities.Count(x => x.Category.ToLower() == category.ToLower()) != 0;
+        //}
 
         public List<Category> GetAllCategories()
         {
@@ -212,8 +214,13 @@ namespace QuizLibrary
 
         public int GetNumberOfQuestionInCategory(int IdCategory)
         {
-            return data.CategoryEntities.First(x => x.IdCategory == IdCategory).Questions.Count;
+            return data.CategoryEntities.Include("Questions").First(x => x.IdCategory == IdCategory).Questions.Count;
         }
+
+
+
+
+
 
         //user
 

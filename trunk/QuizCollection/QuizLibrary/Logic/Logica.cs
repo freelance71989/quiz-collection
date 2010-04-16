@@ -78,7 +78,7 @@ namespace QuizLibrary
         public int CreateCategory(Category category)
         {
             int id = category.IdCategory;
-            if(!entities.ExistCategory(category.CategoryText))
+            if(!entities.ExistCategory(category.IdCategory))
             {
                 if (category.IdCategory == -1)
                 {
