@@ -30,9 +30,17 @@ namespace QuizEditor
         {
             if (logic.GetNumberOfQuestionInCategory((Category)categoryList.SelectedItem) == 0)
             {
+                int index = categoryList.SelectedIndex;
                 var toRemove = categoryList.SelectedItem;
                 deleteCategories.Add(toRemove);
                 categoryList.Items.Remove(toRemove);
+                if (index != 0)
+                    categoryList.SelectedIndex = index - 1;
+                else
+                {
+                    if (categoryList.Items.Count != 0)
+                        categoryList.SelectedIndex = 0;
+                }  
             }
         }
 

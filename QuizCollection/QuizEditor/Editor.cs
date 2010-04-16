@@ -76,7 +76,10 @@ namespace QuizEditor
 
         private void editorDeCategoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formCategory.ShowDialog();
+            if (!SetChanges())
+            {
+                formCategory.ShowDialog();
+            }
         }
 
         private void questionList_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,19 +100,10 @@ namespace QuizEditor
                 //escritura de datos
                 Question quest = (Question)listBoxQuestionList.Items[listBoxQuestionList.SelectedIndex];
                 textBoxQuestion.Text = quest.QuestionText;
-                //ComboBoxCategoryTrataments
-                int indexCategory = -1;
-                for (int i = 0;i<comboBoxCategory.Items.Count;i++)
-                {
-                    if(quest.Equals((Category)comboBoxCategory.Items[i]))
-                    {
-                        indexCategory = i;
-                    }
-                }
-                if (indexCategory != -1)
-                {
-                    comboBoxCategory.SelectedIndex = indexCategory;
-                }
+                //seleccion del combobox
+                int index = comboBoxCategory.FindString(quest.Category.ToString());
+                comboBoxCategory.SelectedIndex = index;
+
                 trackBarDifficulty.Value = quest.Difficulty - 1;
                 labelDifficulty.Text = quest.Difficulty.ToString();
                 listBoxAnswersList.Items.Clear();
@@ -173,7 +167,7 @@ namespace QuizEditor
                 name += " " + count;
 
             Category category = new Category("Nueva Categoria","Por favor, selecciona una categoria");
-            if (comboBoxCategory.Items.Count != 0)
+            if (comboBoxCategory.Items.Count > 0)
             {
                 category = (Category)comboBoxCategory.Items[0];
             }
@@ -266,6 +260,11 @@ namespace QuizEditor
         {
             LoadQuestions();
             LoadCategories();
+        }
+
+        private bool SetChanges() 
+        {
+            return editQuestions.Count > 0 || newQuestions.Count > 0 || deleteQuestions.Count > 0;
         }
     }
 }
