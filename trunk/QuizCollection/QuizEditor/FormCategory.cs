@@ -10,14 +10,14 @@ using QuizLibrary;
 
 namespace QuizEditor
 {
-    public partial class CategoryEditor : Form
+    public partial class FormCategory : Form
     {
         private HashSet<Object> deleteCategories;
         private HashSet<Object> changeCategories;
         private HashSet<Object> newCategories;
         private Logica logic;
 
-        public CategoryEditor()
+        public FormCategory()
         {
             InitializeComponent();
             logic = new Logica();

@@ -1,6 +1,6 @@
 ﻿namespace QuizEditor
 {
-    partial class CategoryEditor
+    partial class FormCategory
     {
         /// <summary>
         /// Required designer variable.
