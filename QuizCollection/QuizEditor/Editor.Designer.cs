@@ -184,8 +184,9 @@
             // toolStripMenuItemAcercaDe
             // 
             this.toolStripMenuItemAcercaDe.Name = "toolStripMenuItemAcercaDe";
-            this.toolStripMenuItemAcercaDe.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItemAcercaDe.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemAcercaDe.Text = "Acerca de";
+            this.toolStripMenuItemAcercaDe.Click += new System.EventHandler(this.OpenAboutDialog);
             // 
             // toolStrip1
             // 

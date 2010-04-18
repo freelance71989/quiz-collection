@@ -12,7 +12,7 @@ namespace QuizEditor
 {
     public partial class formEditor : Form
     {
-        private CategoryEditor formCategory;
+        private FormCategory formCategory;
         private HashSet<Object> editQuestions;
         private HashSet<Object> deleteQuestions;
         private HashSet<Object> newQuestions;
@@ -25,7 +25,7 @@ namespace QuizEditor
             editQuestions = new HashSet<Object>();
             deleteQuestions = new HashSet<Object>();
             newQuestions = new HashSet<Object>();
-            formCategory = new CategoryEditor();
+            formCategory = new FormCategory();
             LoadQuestions();
             LoadCategories();
         }
@@ -265,6 +265,12 @@ namespace QuizEditor
         private bool SetChanges() 
         {
             return editQuestions.Count > 0 || newQuestions.Count > 0 || deleteQuestions.Count > 0;
+        }
+
+        private void OpenAboutDialog(object sender, EventArgs e)
+        {
+            FormAbout fa = new FormAbout();
+            fa.ShowDialog();
         }
     }
 }
