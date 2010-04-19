@@ -13,6 +13,7 @@ namespace QuizEditor
     public partial class formEditor : Form
     {
         private FormCategory formCategory;
+        private FormElements formElements;
         private HashSet<Object> editQuestions;
         private HashSet<Object> deleteQuestions;
         private HashSet<Object> newQuestions;
@@ -26,6 +27,7 @@ namespace QuizEditor
             deleteQuestions = new HashSet<Object>();
             newQuestions = new HashSet<Object>();
             formCategory = new FormCategory();
+            formElements = new FormElements();
             LoadQuestions();
             LoadCategories();
         }
@@ -37,6 +39,8 @@ namespace QuizEditor
             comboBoxCategory.Items.AddRange(categories.ToArray());
             formCategory.categoryList.Items.Clear();
             formCategory.categoryList.Items.AddRange(categories.ToArray());
+            formElements.comboBoxCategory.Items.Clear();
+            formElements.comboBoxCategory.Items.AddRange(categories.ToArray());
         }
 
         private void LoadQuestions()
@@ -82,7 +86,7 @@ namespace QuizEditor
             }
         }
 
-        private void questionList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ChangeSelectedIndexQuestion(object sender, EventArgs e)
         {
             if (listBoxQuestionList.SelectedItem != null)
             {
@@ -97,6 +101,7 @@ namespace QuizEditor
                 buttonSound.Enabled = true;
                 buttonCreateAnswer.Enabled = true;
                 trackBarDifficulty.Enabled = true;
+                textBoxCreatorBy.Enabled = true;
                 //escritura de datos
                 Question quest = (Question)listBoxQuestionList.Items[listBoxQuestionList.SelectedIndex];
                 textBoxQuestion.Text = quest.QuestionText;
@@ -109,6 +114,7 @@ namespace QuizEditor
                 listBoxAnswersList.Items.Clear();
                 listBoxAnswersList.Items.AddRange(quest.Answers.ToArray());
                 editQuestions.Add(quest);
+                textBoxCreatorBy.Text = quest.CreatorBy;
             }
             else
             {
@@ -125,11 +131,13 @@ namespace QuizEditor
                 buttonDeleteAnswer.Enabled = false;
                 buttonEditAnswer.Enabled = false;
                 trackBarDifficulty.Enabled = false;
+                textBoxCreatorBy.Enabled = false;
                 //escritura de datos
                 textBoxQuestion.Text = "";
                 trackBarDifficulty.Value = 0;
                 labelDifficulty.Text = Convert.ToString(1);
                 listBoxAnswersList.Items.Clear();
+                textBoxCreatorBy.Text = "";
             }
         }
 
@@ -166,12 +174,29 @@ namespace QuizEditor
             if (count != 0)
                 name += " " + count;
 
-            Category category = new Category("Nueva Categoria","Por favor, selecciona una categoria");
-            if (comboBoxCategory.Items.Count > 0)
+            //categoria
+            Category category = new Category("Nueva Categoria", "Por favor, selecciona una categoria");
+            if (formElements.category != null)
+            {
+                category = formElements.category;
+            }
+            else if(comboBoxCategory.Items.Count > 0)
             {
                 category = (Category)comboBoxCategory.Items[0];
             }
-            Question quest = logic.CreateQuestion(new Question(name, answers, category, 1));
+
+            if (category.CategoryText == "Nueva Categoria")
+            {
+                comboBoxCategory.Items.Add(category);
+            }
+
+            int difficulty = formElements.difficulty;
+            if (difficulty == -1)
+            {
+                difficulty = 1;
+            }
+            Question quest = logic.CreateQuestion(new Question(name, answers, category, difficulty));
+            quest.CreatorBy = formElements.creatorBy;
 
             listBoxQuestionList.Items.Add(quest);
             newQuestions.Add(listBoxQuestionList.Items[listBoxQuestionList.Items.Count - 1]);
@@ -271,6 +296,19 @@ namespace QuizEditor
         {
             FormAbout fa = new FormAbout();
             fa.ShowDialog();
+        }
+
+        private void ShowFormElements(object sender, EventArgs e)
+        {
+            if (!SetChanges())
+            {
+                formElements.ShowDialog();
+            }
+        }
+
+        private void ExitProgram(object sender, EventArgs e)
+        {
+            //pedir guardar
         }
     }
 }
