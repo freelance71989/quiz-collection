@@ -157,7 +157,7 @@
             this.textBoxCategory.Name = "textBoxCategory";
             this.textBoxCategory.Size = new System.Drawing.Size(288, 20);
             this.textBoxCategory.TabIndex = 2;
-            this.textBoxCategory.TextChanged += new System.EventHandler(this.CambioNombreCategoria);
+            this.textBoxCategory.TextChanged += new System.EventHandler(this.ChangeNameCategory);
             // 
             // textBoxDescription
             // 
@@ -169,7 +169,7 @@
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(288, 156);
             this.textBoxDescription.TabIndex = 3;
-            this.textBoxDescription.TextChanged += new System.EventHandler(this.CambioCategoria);
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.ChangeDescriptionCategory);
             // 
             // categoryList
             // 
@@ -227,13 +227,13 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.DiscardChanges);
             // 
-            // CategoryEditor
+            // FormCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 289);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "CategoryEditor";
+            this.Name = "FormCategory";
             this.Text = "CategoryEditor";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

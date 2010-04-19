@@ -598,6 +598,7 @@
             this.textBoxCreatorBy.Name = "textBoxCreatorBy";
             this.textBoxCreatorBy.Size = new System.Drawing.Size(355, 20);
             this.textBoxCreatorBy.TabIndex = 11;
+            this.textBoxCreatorBy.TextChanged += new System.EventHandler(this.ChangeCreator);
             // 
             // groupBox2
             // 

@@ -44,21 +44,19 @@ namespace QuizEditor
             }
         }
 
-        private void CambioNombreCategoria(object sender, EventArgs e)
+        private void ChangeNameCategory(object sender, EventArgs e)
         {
             if (categoryList.SelectedItem != null)
             {
                 ((Category)categoryList.SelectedItem).CategoryText = textBoxCategory.Text;
-                categoryList.Refresh();
             }
         }
 
-        private void CambioCategoria(object sender, EventArgs e)
+        private void ChangeDescriptionCategory(object sender, EventArgs e)
         {
             if (categoryList.SelectedItem != null)
             {
-                Category category = (Category)categoryList.Items[categoryList.SelectedIndex];
-                category.Description = textBoxDescription.Text;
+                ((Category)categoryList.SelectedItem).Description = textBoxDescription.Text;
             }
         }
 
