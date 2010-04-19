@@ -14,6 +14,7 @@ namespace QuizLibrary
         private List<Answer> answers;
         private String image;
         private String sound;
+        private String creatorBy;
 
         public Question() { }
 
@@ -79,6 +80,12 @@ namespace QuizLibrary
         {
             get { return sound; }
             set { sound = value; }
+        }
+
+        public String CreatorBy
+        {
+            get { return creatorBy; }
+            set { creatorBy = value; }
         }
 
         public void AddQuestionInBD() 

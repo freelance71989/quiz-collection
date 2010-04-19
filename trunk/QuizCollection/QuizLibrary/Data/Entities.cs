@@ -86,16 +86,6 @@ namespace QuizLibrary
             return questions;
         }
 
-        //public int LastIdQuestion()
-        //{
-        //    return data.QuestionEntities.Max(x => x.IdQuestion);
-        //}
-
-        //public Boolean ExistQuestion(int idQuestion)
-        //{
-        //    return data.QuestionEntities.Count(x => x.IdQuestion == idQuestion) != 0;
-        //}
-
         public void DeleteQuestion(int idQuestion)
         {
             QuestionEntity qe = data.QuestionEntities.Include("Answers").First(x => x.IdQuestion == idQuestion);
@@ -163,17 +153,6 @@ namespace QuizLibrary
             data.SaveChanges();
         }
 
-        //public Category GetCategory(String category)
-        //{
-        //    Category res = new Category();
-        //    var ce = data.CategoryEntities.First(x => x.Category == category);
-        //    res.IdCategory = ce.IdCategory;
-        //    res.CategoryText = ce.Category;
-        //    res.Description = ce.Description;
-
-        //    return res;
-        //}
-
         public Category GetCategory(int idCategory)
         {
             Category res = new Category();
@@ -189,11 +168,6 @@ namespace QuizLibrary
         {
             return data.CategoryEntities.Count(x => x.IdCategory == idCategory) != 0;
         }
-
-        //public Boolean ExistCategory(String category)
-        //{
-        //    return data.CategoryEntities.Count(x => x.Category.ToLower() == category.ToLower()) != 0;
-        //}
 
         public List<Category> GetAllCategories()
         {
@@ -216,11 +190,6 @@ namespace QuizLibrary
         {
             return data.CategoryEntities.Include("Questions").First(x => x.IdCategory == IdCategory).Questions.Count;
         }
-
-
-
-
-
 
         //user
 
