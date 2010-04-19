@@ -84,6 +84,16 @@ namespace QuizEditor
             {
                 formCategory.ShowDialog();
             }
+            else
+            {
+                if (MessageBox.Show("Para acceder a elementos fijos antes debe guardar los cambios realizados ¿desea hacerlo?", "Guardar Cambios", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+                {
+                    SaveAll(this, null);
+                    formElements.ShowDialog();
+                }
+
+            }
+            LoadCategories();
         }
 
         private void ChangeSelectedIndexQuestion(object sender, EventArgs e)
@@ -185,11 +195,6 @@ namespace QuizEditor
                 category = (Category)comboBoxCategory.Items[0];
             }
 
-            if (category.CategoryText == "Nueva Categoria")
-            {
-                comboBoxCategory.Items.Add(category);
-            }
-
             int difficulty = formElements.difficulty;
             if (difficulty == -1)
             {
@@ -200,6 +205,11 @@ namespace QuizEditor
 
             listBoxQuestionList.Items.Add(quest);
             newQuestions.Add(listBoxQuestionList.Items[listBoxQuestionList.Items.Count - 1]);
+
+            if (category.CategoryText == "Nueva Categoria")
+            {
+                LoadCategories();
+            }
 
         }
 
@@ -304,11 +314,28 @@ namespace QuizEditor
             {
                 formElements.ShowDialog();
             }
+            else
+            {
+                if (MessageBox.Show("Para acceder a elementos fijos antes debe guardar los cambios realizados ¿desea hacerlo?", "Guardar Cambios", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+                {
+                    SaveAll(this, null);
+                    formElements.ShowDialog();
+                }
+                
+            }
         }
 
         private void ExitProgram(object sender, EventArgs e)
         {
             //pedir guardar
+        }
+
+        private void ChangeCreator(object sender, EventArgs e)
+        {
+            if (listBoxQuestionList.SelectedItem != null)
+            {
+                ((Question)listBoxQuestionList.SelectedItem).CreatorBy = textBoxCreatorBy.Text;
+            }
         }
     }
 }

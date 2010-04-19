@@ -30,6 +30,7 @@ namespace QuizLibrary
             qe.Difficulty = Convert.ToByte(question.Difficulty);
             qe.Image = question.Image;
             qe.Sound = question.Sound;
+            qe.CreateBy = question.CreatorBy;
             data.AddToQuestionEntities(qe);
             data.SaveChanges();
             foreach (var ans in question.Answers)
@@ -46,6 +47,7 @@ namespace QuizLibrary
             qe.Question = question.QuestionText;
             qe.Category = data.CategoryEntities.First(x => x.Category == question.Category.CategoryText);
             qe.Difficulty = Convert.ToByte(question.Difficulty);
+            qe.CreateBy = question.CreatorBy;
             foreach (var ans in qe.Answers.ToArray())
             {
                 DeleteAnswer(ans.IdAnswer);
@@ -72,6 +74,7 @@ namespace QuizLibrary
             res.Answers = answers;
             res.Image = questEntity.Image;
             res.Sound = questEntity.Sound;
+            res.CreatorBy = questEntity.CreateBy;
 
             return res;
         }
